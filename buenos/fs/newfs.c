@@ -245,14 +245,14 @@ int newfs_open(fs_t *fs, char *filename)
   
   semaphore_P(newfs->lock);
 
-  r = newfs_disk_action(newfs->disk, NEWFS_DIRECTORY_BLOCK, 
+  r = newfs_disk_action(newfs->disk, NEWFS_DIRECTORY_BLOCKS, 
 			(uint32_t)newfs->buffer_md, 0);
   if(r == 0) {
     semaphore_V(newfs->lock);
     return VFS_ERROR;
   }
 
-  for(i=0, i < FLATFS_MAX_FILES; ++i) {
+  for(i=0, i < NEWFS_MAX_FILES; ++i) {
     if(stringcmp(newfs->buffer_md[i].name, filename) == 0) {
       semaphore_V(newfs->lock);
       return newfs->buffer_md[i].inode;
