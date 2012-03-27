@@ -23,6 +23,7 @@
 /* Block numbers for system blocks */
 #define NEWFS_HEADER_BLOCK 0
 #define NEWFS_ALLOCATION_BLOCK 1
+#define NEWFS_DIRECTORY_BLOCK  2
 
 /* Names are limited to 16 characters */
 #define NEWFS_VOLUMENAME_MAX 16
