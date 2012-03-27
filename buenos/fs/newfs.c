@@ -237,9 +237,30 @@ int newfs_unmount(fs_t *fs)
  * VFS_NOT_FOUND if the file doesn't exist. */
 int newfs_open(fs_t *fs, char *filename)
 {
-  fs=fs;
-  filename=filename;
-  return VFS_NOT_SUPPORTED;
+  newfs_t *newfs;
+  uint32_t i;
+  int r;
+  
+  newfs = (newfs_t *)fs->internal;
+  
+  semaphore_P(newfs->lock);
+
+  r = newfs_disk_action(newfs->disk, NEWFS_DIRECTORY_BLOCK, 
+			(uint32_t)newfs->buffer_md, 0);
+  if(r == 0) {
+    semaphore_V(newfs->lock);
+    return VFS_ERROR;
+  }
+
+  for(i=0, i < FLATFS_MAX_FILES; ++i) {
+    if(stringcmp(newfs->buffer_md[i].name, filename) == 0) {
+      semaphore_V(newfs->lock);
+      return newfs->buffer_md[i].inode;
+    }
+  }
+
+  semaphore_V(newfs->lock);
+  return VFS_NOT_FOUND;
 }
 
 /* Close a file. This does nothing */
@@ -259,58 +280,443 @@ int newfs_close(fs_t *fs, int fileid)
  * if everything succeeds! */
 int newfs_create(fs_t *fs, char *filename, int size)
 {
-  fs=fs;
-  filename=filename;
-  size=size;
-  return VFS_NOT_SUPPORTED;
+  newfs_t *newfs = (newfs_t *)fs->internal;
+  uint32_t i;
+  uint32_t numblocks = (size + NEWFS_BLOCK_SIZE - 1)/NEWFS_BLOCK_SIZE;
+  int index = -1;
+  int r;
+
+  semaphore_P(newfs->lock);
+
+  if (numblocks > NEWFS_MAX_BLOCK) {
+    semaphore_V(newfs->lock);
+    return VFS_ERROR;
+  }
+
+  r = newfs_disk_action(newfs->disk, NEWFS_DIRECTORY_BLOCK, 
+			(uint32_t)newfs->buffer_md, 0);
+  if(r == 0) {
+    semaphore_V(newfs->lock);
+    return VFS_ERROR;
+  }
+
+  for(i=0;i<NEWFS_MAX_FILES;i++) {
+    if(stringcmp(newfs->buffer_md[i].name, filename) == 0) {
+      semaphore_V(newfs->lock);
+      return VFS_ERROR;
+    }
+
+    if(newfs->buffer_md[i].inode == 0)
+      index = i;
+  }
+
+  if(index == -1) {
+    semaphore_V(newfs->lock);
+    return VFS_ERROR;
+  }
+
+  stringcopy(newfs->buffer_md[index].name,filename,NEWFS_FILENAME_MAX);
+
+  r = newfs_disk_action(newfs->disk,NEWFS_ALLOCATION_BLOCK,
+			(uint32_t)newfs->buffer_bat,0);
+  if(r=0) {
+    semaphore_V(flatfs->lock);
+    return VFS_ERROR;
+  }
+
+  if (newfs_bm_alloc(newfs, &(newfs->buffer_md[index].inode)) == -1) {
+    semaphore_V(newfs->lock);
+    return VFS_ERROR;
+  }
+
+  newfs->buffer_inode->filesize = size;
+  newfs->buffer_inode->block_indir = 0;
+  newfs->buffer_inode->block_dbl_indir = 0;
+
+  if (numblocks > NEWFS_BLOCKS_DIRECT + NEWFS_BLOCKS_SINDIR && (newfs_bm_alloc(newfs, &(newfs->buffer_inode->block_dbl_indir)) == -1 || newfs_disk_action(newfs->disk, newfs->buffer_inode->block_dbl_indir, (uint32_t)zeroblock, 1) == 0))
+    {
+      sempaphore_V(newfs->lock);
+      return VFS_ERROR;
+    }
+
+  if (newfs_alloc_blocks(newfs, numblocks, 0) == VFS_ERROR) {
+    semaphore_V(newfs->lock);
+    return VFS_ERROR;
+  }
+
+  r = newfs_disk_action(newfs->disk, NEWFS_DIRECTORY_BLOCK, (uint32_t)newfs->buffer_md, 1);
+  if(r=0) {
+    semaphore_V(newfs->lock);
+    return VFS_ERROR;
+  }
+
+  r = newfs_disk_action(newfs->disk, newfs->buffer_md[index].inode, (uint32_t)newfs->buffer_inode, 1);
+  if(r=0) {
+    semaphore_V(newfs->lock);
+    return VFS_ERROR;
+  }
+
+  semaphore_V(newfs->lock);
+  return VFS_OK;					       
 }
 
 /* Delete a file from the system. */
 int newfs_remove(fs_t *fs, char *filename)
 {
-  fs=fs;
-  filename=filename;
-  return VFS_NOT_SUPPORTED;
+  newfs_t *newfs = (newfs_t *)fs->internal;
+  uint32_t i;
+  int index = -1;
+  int r;
+  uint32_t numblocks;
+  
+  semaphore_P(newfs->lock);
+
+  r = newfs_disk_action(newfs->disk, NEWFS_DIRECTORY_BLOCK, (uint32_t)newfs->buffer_md, 0);
+  if(r=0) {
+    semaphore_V(newfs->lock);
+    return VFS_ERROR;
+  }
+  
+  for(i=0;i<NEWFS_MAX_FILES;i++) {
+    if(stringcmp(newfs->buffer_md[i].name, filename) == 0) {
+      index = i;
+      break;
+    }
+  }
+  if(index == -1) {
+    semaphore_V(newfs->lock);
+    return VFS_NOT_FOUND;
+  }
+
+  r = newfs_disk_action(newfs->disk, NEWFS_ALLOCATION_BLOCK, (uint32_t)newfs->buffer_bat, 0);
+  if(r=0) {
+    semaphore_V(newfs->lock);
+    return VFS_ERROR;
+  }
+
+  r = newfs_disk_action(newfs->disk, newfs->buffer_md[index].inode, (uint32_t)newfs->buffer_inode, 0);
+  if (r=0) {
+    semaphore_V(newfs->lock);
+    return VFS_ERROR;
+  }
+
+  numblocks = (newfs->buffer_inode->filesize + NEWFS_BLOCK_SIZE - 1) / NEWFS_BLOCK_SIZE;
+
+  if (numblocks > NEWFS_BLOCKS_DIRECT + NEWFS_BLOCKS_SINDIR && newfs->buffer_inode->block_dbl_indir != 0) {
+    if (newfs_disk_action(newfs->disk, newfs->buffer_inode->block_dbl_indir, (uint32_t)newfs->buffer_di, 0) == 0) {
+      semaphore_V(newfs->lock);
+      return VFS_ERROR;
+    }
+
+    uint32_t tmpblocks = numblocks - NEWFS_BLOCKS_DIRECT - NEWFS_BLOCKS_SINDIR;
+    for (i=0; tmpblocks > 0; tmpblocks -= NEWFS_BLOCKS_SINDIR, ++1) {
+      if (newfs_remove_indir(newfs, i) == VFS_ERROR)
+	{
+	  semaphore_V(newfs->lock);
+	  return VFS_ERROR:
+	}
+    }
+  }
+
+  if(newfs->buffer_inode->block_indir > 0 && newfs_remove_indir(newfs, -1) == VFS_ERROR)
+    {
+      semaphore_V(newfs->lock);
+      return VFS_ERROR;
+    }
+
+  bitmap_set(newfs->buffer_bat, newfs->buffer_md[index].inode, 0);
+  
+  for(i=0; i < NEWFS_BLOCKS_DIRECT; ++I)
+    if(newfs->buffer_inode->block[i] > 0)
+      bitmap_set(newfs->buffer_bat, newfs->buffer_inode->block[i],0);
+
+  newfs->buffer_md[index].inode = 0;
+  newfs->buffer_md[index].name[0] = 0;
+
+  r= newfs_disk_action(newfs->disk, NEWFS_ALLOCATION_BLOCK, (uint32_t)newfs->buffer_bat, 1);
+  if(r == 0) {
+    semaphore_V(newfs->lock);
+    return VFS_ERROR;
+  }
+
+  r=newfs_disk_action(newfs->disk, NEWFS_DIRECTORY_BLOCK, (uint32_t)newfs->buffer_bat, 1);
+  if(r=0) {
+    semaphore_V(newfs->lock);
+    return VFS_ERROR;
+  }
+
+  r = newfs_disk_action(newfs->disk, NEWFS_DIRECTORY_BLOCK, (uint32_t)newfs->buffer_md, 1);
+  if(r=0) {
+    semaphore_V(newfs->lock);
+    return VFS_OK;
 }
 
 
 /* Read at most bufsize bytes from file to the buffer. */
 int newfs_read(fs_t *fs, int fileid, void *buffer, int bufsize, int offset)
 {
-  fs=fs;
-  fileid=fileid;
-  buffer=buffer;
-  bufsize=bufsize;
-  offset=offset;
-  return VFS_NOT_SUPPORTED;
+    newfs_t *newfs = (newfs_t *)fs->internal;
+    int b1, b2, b;
+    int read=0;
+    int r;
+    uint32_t block;
+
+    semaphore_P(newfs->lock);
+
+    /* fileid is blocknum so ensure that we don't read system blocks
+       or outside the disk */
+    if(fileid < 2 || fileid > (int)newfs->totalblocks) {
+        semaphore_V(newfs->lock);
+        return VFS_ERROR;
+    }
+
+    r = newfs_disk_action(newfs->disk, fileid, (uint32_t)newfs->buffer_inode, 0);
+    if(r == 0) {
+        semaphore_V(newfs->lock);
+        return VFS_ERROR;
+    }
+
+    /* Check that offset is inside the file */
+    if(offset < 0 || offset > (int)newfs->buffer_inode->filesize) {
+        semaphore_V(newfs->lock);
+        return VFS_INVALID_PARAMS;
+    }
+
+    /* Read at most what is left from the file. */
+    bufsize = MIN(bufsize,((int)newfs->buffer_inode->filesize) - offset);
+
+    if(bufsize==0) {
+        semaphore_V(newfs->lock);
+        return 0;
+    }
+
+    /* first block to be read from the disk */
+    b1 = offset / NEWFS_BLOCK_SIZE;
+
+    /* last block to be read from the disk */
+    b2 = (offset+bufsize-1) / NEWFS_BLOCK_SIZE;
+
+    /* If the file has double-indirect blocks, read in the double-indirect
+     * block right away. */
+    if (newfs->buffer_inode->block_dbl_indir > 0 &&
+            newfs_disk_action(newfs->disk, newfs->buffer_inode->block_dbl_indir,
+                (uint32_t)newfs->buffer_di, 0) == 0)
+    {
+        semaphore_V(newfs->lock);
+        return VFS_ERROR;
+    }
+
+    /* We do this to get the single-indirect buffer we need to start off
+     * the loop. Now we can just check if the block is the first in a
+     * single-indir block and only buffer the single-indir block in that case. */
+    newfs_getblock(newfs, b1, 0);
+    for (b = b1; b <= b2; ++b)
+    {
+        /* Get the physical block of the logical block. Potentially read a new
+         * single-indir block into the buffer. */
+        block = newfs_getblock(flatfs, b,
+                (b - NEWFS_BLOCKS_DIRECT) % NEWFS_BLOCKS_SINDIR);
+        /* We read the data into the BAT buffer because we don't use it for
+         * anything else. */
+        r = newfs_disk_action(newfs->disk, block, (uint32_t)newfs->buffer_bat, 0);
+        if (r == 0)
+        {
+            semaphore_V(newfs->lock);
+            return VFS_ERROR;
+        }
+        if (b == b1)
+        {
+            /* First block. Handle the offset. */
+            read = MIN(NEWFS_BLOCK_SIZE - (offset % NEWFS_BLOCK_SIZE), bufsize);
+            memcopy(read, buffer, (const uint32_t *)(((uint32_t)newfs->buffer_bat) +
+                        (offset % NEWFS_BLOCK_SIZE)));
+            buffer = (void *)((uint32_t)buffer + read);
+        }
+        else if (b == b2)
+        {
+            memcopy(bufsize - read, buffer, (const uint32_t *)newfs->buffer_bat);
+            read = bufsize;
+        }
+        else
+        {
+	   memcopy(NEWFS_BLOCK_SIZE, buffer, (const uint32_t *)newfs->buffer_bat);
+            read += NEWFS_BLOCK_SIZE;
+            buffer = (void *)((uint32_t)buffer + NEWFS_BLOCK_SIZE);
+        }
+    }
+
+    semaphore_V(newfs->lock);
+    return read;
 }
 
 /* Write at most datasize bytes to the file, possibly increasing the size of
  * file in the process. */
 int newfs_write(fs_t *fs, int fileid, void *buffer, int datasize, int offset)
 {
-  fs=fs;
-  fileid=fileid;
-  buffer=buffer;
-  datasize=datasize;
-  offset=offset;
-  return VFS_NOT_SUPPORTED;
+  newfs_t *newfs = (newfs_t *)fs->internal;
+  uint32_t b1, b2, b, block;
+  int written = 0;
+  int r;
+
+  semaphore_P(newfs->lock);
+
+  if(fileid < 2 || fileid > (int)newfs->totalblocks || offset < 0)
+    {
+      semaphore_V(newfs->lock);
+      return VFS_INVALID_PARAMS;
+    }
+
+  if (datasize == 0) {
+    semaphore_V(newfs->lock);
+    return 0;
+  }
+
+  r = newfs_disk_action(newfs->disk, fileid, (uint32_t)newfs->buffer_inode, 0);
+  if(r==0) {
+    semaphore_V(newfs->lock);
+    return VFS_ERROR;
+  }
+
+  if(offset > (int)newfs->buffer_inode->filesize) {
+    semaphore_V(newfs->lock);
+    return VFS_ERROR;
+  }
+
+  b1 = offset / NEWFS_BLOCK_SIZE;
+
+  b2 = (offset+datasize-1) / NEWFS_BLOCK_SIZE;
+
+  uint32_t last_block = (newfs->buffer_inode->filesize - 1) / NEWFS_BLOCK_SIZE;
+  if (newfs->buffer_inode->filesize == 0)
+    last_block = 0;
+
+  if (newfs->buffer_inode->blosk_dbl_indir > 0 && newfs_disk_action(newfs->disk, newfs->buffer_inode->block_dbl_indir, (uint32_t)newfs->buffer_di, 0) == 0) {
+    semaphore_V(newfs->lock);
+    return VFS_ERROR;
+  }
+ 
+  if (b2 > last-block || newfs->buffer_inode->filesize == 0) {
+    if(newfs_disk_action(newfs->disk, NEWFS_ALLOCATION_BLOCK, (uint32_t)newfs->buffer_bat,0) == 0) {
+      semaphore_V(newfs->lock);
+      return VFS_ERROR;
+    }
+
+    if(newfs->buffer_inode->filesize == 0) {
+      if(newfs_bm_alloc(newfs, &(newfs->buffer_inode->block[0])) == -1 || newfs_disk_action(newfs->disk, newfs->buffer_inode->block[0], (uint32_t)zeroblock, 1) == 0) {
+	semaphore_V(newfs->lock);
+	return VFS_ERROR;
+      }
+    }
+
+    if (b2 >= NEWFS_BLOCKS_DIRECT + NEWFS_BLOCK_SINDIR && last_block < NEWFS_BLOCKS_DIRECT + NEWFS_BLOCKS_SINDIR) {
+      if(newfs_bm_alloc(newfs, &(newfs->buffer_inode->block_dbl_indir)) == -1 || newfs_disk_action(newfs->disk, newfs->buffer_inode->block_dbl_indir, (uint32_t)zeroblock, 1) == 0) {
+	semaphore_V(newfs->lock);
+	return VFS_ERROR;
+      }
+    }
+
+    if (b2 > last_block)
+      newfs_alloc_blocks(newfs,b2-last_block,last_block+1);
+    else if (newfs_disk_action(newfs->disk, NEWFS_ALLOCATION_BLOCK, (uint32_t)newfs->buffer_bat, 1) == 0) {
+      semaphore_V(newfs->lock);
+      return VFS_ERROR;
+    }
+  }
+
+  newfs_getblock(newfs, b1, 0);
+  for (b = b1; b <= b2; ++b) {
+    block = newfs_getblock(newfs,b,(b-NEWFS_BLOCKS_DIRECT) % NEWFS_BLOCKS_SINDIR);
+    if (b == b1) {
+      written = MIN(NEWFS_BLOCK_SIZE - (offset % NEWFS_BLOCK_SIZE), datasize);
+      if (newfs_disk_action(newfs->disk, block, (uint32_t)newfs->buffer_bat, 0) == 0) {
+	semaphore_V(newfs->lock);
+	return VFS_ERROR;
+      }
+      memcopy(written, (uint32_t *)(((uint32_t)newfs->buffer_bat) + (offset % NEWFS_BLOCK_SIZE)), buffer);
+      buffer = (void *)((Uint32_t)buffer + written);
+    }
+    else if (b == b2) {
+      if(newfs_disk_action(newfs->disk, block, (uint32_t)newfs->buffer_bat, 0) == 0) {
+	semaphore_V(newfs->lock);
+	return VFS_ERROR;
+      }
+      memcopy(datasize - written, (uint32_t *)newfs->buffer_bat, buffer);
+      written = datasize;
+    }
+    else {
+      memcopy(NEWFS_BLOCK_SIZE, (uint32_t *)newfs->buffer_bat, buffer);
+      written += NEWFS_BLOCK_SIZE;
+      buffer = (void *)((uint32_t)buffer + NEWFS_BLOCK_SIZE);
+    }
+    
+    if(newfs_disk_action(newfs->disk, block, (uint32_t)newfs->buffer_bat, 1) == 0) {
+      semaphore_V(newfs->lock);
+      return VFS_ERROR;
+    }
+  }
+
+  if ((uint32_t)offset + datasize > newfs->buffer_inode->filesize) {
+    newfs->buffer_inode->filesize = (uint32_t)offset + datasize;
+    if(newfs_disk_action(newfs->disk, fileid, (uint32_t)newfs->buffer_inode,1) == 0) {
+      semaphore_V(newfs->lock);
+      return VFS_ERROR;
+    }
+  }
+  
+  semaphore_V(newfs->lock);
+  return written;
 }
 
 /* Get the number of free bytes on the disk. */
 int newfs_getfree(fs_t *fs)
 {
-  fs=fs;
-  return VFS_NOT_SUPPORTED;
+  newfs_t *newfs = (newfs_t *)fs->internal;
+  int allocated = 0;
+  uint32_t i;
+  int r;
+
+  semaphore_P(newfs->lock);
+
+  r = newfs_disk_action(newfs->disk, NEWFS_ALLOCATION_BLOCK, (uint32_t)newfs->buffer_bat, 0);
+  if(r == 0) {
+    semaphore_V(newfs->lock);
+    return VFS_ERROR;
+  }
+
+  for(i=0;i<newfs->totalblocks;i++) {
+    allocated += bitmap_get(newfs->buffer_bat,i);
+  }
+
+  semaphore_V(newfs->lock);
+  return (newfs->totalblocks - allocated)*NEWFS_BLOCK_SIZE;
 }
 
 /* Get the count of files in the directory if it exists (ie. only the
  * master directory is accepted. */
 int newfs_filecount(fs_t *fs, char *dirname)
 {
-  fs=fs;
-  dirname=dirname;
-  return VFS_NOT_SUPPORTED;
+  newfs_t *newfs = (newfs_t *)fs->internal;
+  uint32_t i;
+  int r;
+  int count = 0;
+
+  if(stringcmp(dirname, "") != 0)
+    return -VFS_NOT_FOUND;
+
+  semaphore_P(newfs->lock);
+
+  r = newfs_disk_action(newfs->disk, NEWFS_DIRECTORY_BLOCK, (uint32_t)newfs->buffer_md, 0);
+  if(r == 0) {
+    semaphore_V(newfs->lock);
+    return VFS_ERROR;
+  }
+
+  fir(i=0; i < NEWFS_MAX_FILES; ++i)
+    if(newfs->buffer_md[i].inode != 0)
+      ++count;
+
+  semaphore_V(newfs->lock);
+  return count;
 }
 
 /* Get the name of the file with index idx in the directory dirname.
@@ -319,11 +725,32 @@ int newfs_filecount(fs_t *fs, char *dirname)
  * the file indexes used are the n first. */
 int newfs_file(fs_t *fs, char *dirname, int idx, char *buffer)
 {
-  fs=fs;
-  dirname=dirname;
-  idx=idx;
-  buffer=buffer;
-  return VFS_NOT_SUPPORTED;
+  newfs_t *newfs = (newfs_t *)fs->internal;
+  uint32_t i;
+  int r;
+  int count = 0;
+
+  if(stringcmp(dirname, "") != 0 || idx < 0)
+    return VFS_NOT_FOUND;
+  
+  semaphore_P(newfs->lock);
+
+  r=newfs_disk_action(newfs->disk, NEWFS_DIRECTORY_BLOCK, (uint32_t)newfs->buffer_md, 0);
+  if(r == 0) {
+    semaphore_V(newfs->lock);
+    return VFS_ERROR;
+  }
+
+  for(i=0; i < NEWFS_MAX_FILES; ++i) {
+    if(newfs->buffer_md[i].inode != 0 && count++ == idx) {
+      strincopy(buffer, newfs->buffer_md[i].name, NEWFS_FILENAME_MAX);
+      semaphore_V(newfs->lock);
+      return VFS_ERROR;
+    }
+  }
+  
+  semaphore_V(newfs->lock);
+  return VFS_NOT_FOUND;
 }
 
 int newfs_mkdir(fs_t *fs, char *dirname)
