@@ -372,7 +372,7 @@ int newfs_remove(fs_t *fs, char *filename)
   semaphore_P(newfs->lock);
 
   r = newfs_disk_action(newfs->disk, NEWFS_DIRECTORY_BLOCK, (uint32_t)newfs->buffer_md, 0);
-  if(r=0) {
+  if(r==0) {
     semaphore_V(newfs->lock);
     return VFS_ERROR;
   }
@@ -389,13 +389,13 @@ int newfs_remove(fs_t *fs, char *filename)
   }
 
   r = newfs_disk_action(newfs->disk, NEWFS_ALLOCATION_BLOCK, (uint32_t)newfs->buffer_bat, 0);
-  if(r=0) {
+  if(r==0) {
     semaphore_V(newfs->lock);
     return VFS_ERROR;
   }
 
   r = newfs_disk_action(newfs->disk, newfs->buffer_md[index].inode, (uint32_t)newfs->buffer_inode, 0);
-  if (r=0) {
+  if (r==0) {
     semaphore_V(newfs->lock);
     return VFS_ERROR;
   }
@@ -446,7 +446,7 @@ int newfs_remove(fs_t *fs, char *filename)
   }
 
   r = newfs_disk_action(newfs->disk, NEWFS_DIRECTORY_BLOCK, (uint32_t)newfs->buffer_md, 1);
-  if(r=0) {
+  if(r==0) {
     semaphore_V(newfs->lock);
     return VFS_OK;
 }
