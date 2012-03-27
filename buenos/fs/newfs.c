@@ -288,7 +288,7 @@ int newfs_create(fs_t *fs, char *filename, int size)
 
   semaphore_P(newfs->lock);
 
-  if (numblocks > NEWFS_MAX_BLOCK) {
+  if (numblocks > NEWFS_MAX_BLOCKS) {
     semaphore_V(newfs->lock);
     return VFS_ERROR;
   }
@@ -319,8 +319,8 @@ int newfs_create(fs_t *fs, char *filename, int size)
 
   r = newfs_disk_action(newfs->disk,NEWFS_ALLOCATION_BLOCK,
 			(uint32_t)newfs->buffer_bat,0);
-  if(r=0) {
-    semaphore_V(flatfs->lock);
+  if(r==0) {
+    semaphore_V(newfs->lock);
     return VFS_ERROR;
   }
 
@@ -335,7 +335,7 @@ int newfs_create(fs_t *fs, char *filename, int size)
 
   if (numblocks > NEWFS_BLOCKS_DIRECT + NEWFS_BLOCKS_SINDIR && (newfs_bm_alloc(newfs, &(newfs->buffer_inode->block_dbl_indir)) == -1 || newfs_disk_action(newfs->disk, newfs->buffer_inode->block_dbl_indir, (uint32_t)zeroblock, 1) == 0))
     {
-      sempaphore_V(newfs->lock);
+      semaphore_V(newfs->lock);
       return VFS_ERROR;
     }
 
@@ -345,13 +345,13 @@ int newfs_create(fs_t *fs, char *filename, int size)
   }
 
   r = newfs_disk_action(newfs->disk, NEWFS_DIRECTORY_BLOCK, (uint32_t)newfs->buffer_md, 1);
-  if(r=0) {
+  if(r==0) {
     semaphore_V(newfs->lock);
     return VFS_ERROR;
   }
 
   r = newfs_disk_action(newfs->disk, newfs->buffer_md[index].inode, (uint32_t)newfs->buffer_inode, 1);
-  if(r=0) {
+  if(r==0) {
     semaphore_V(newfs->lock);
     return VFS_ERROR;
   }
@@ -409,11 +409,11 @@ int newfs_remove(fs_t *fs, char *filename)
     }
 
     uint32_t tmpblocks = numblocks - NEWFS_BLOCKS_DIRECT - NEWFS_BLOCKS_SINDIR;
-    for (i=0; tmpblocks > 0; tmpblocks -= NEWFS_BLOCKS_SINDIR, ++1) {
+    for (i=0; tmpblocks > 0; tmpblocks -= NEWFS_BLOCKS_SINDIR, ++i) {
       if (newfs_remove_indir(newfs, i) == VFS_ERROR)
 	{
 	  semaphore_V(newfs->lock);
-	  return VFS_ERROR:
+	  return VFS_ERROR;
 	}
     }
   }
@@ -426,7 +426,7 @@ int newfs_remove(fs_t *fs, char *filename)
 
   bitmap_set(newfs->buffer_bat, newfs->buffer_md[index].inode, 0);
   
-  for(i=0; i < NEWFS_BLOCKS_DIRECT; ++I)
+  for(i=0; i < NEWFS_BLOCKS_DIRECT; ++i)
     if(newfs->buffer_inode->block[i] > 0)
       bitmap_set(newfs->buffer_bat, newfs->buffer_inode->block[i],0);
 
@@ -440,7 +440,7 @@ int newfs_remove(fs_t *fs, char *filename)
   }
 
   r=newfs_disk_action(newfs->disk, NEWFS_DIRECTORY_BLOCK, (uint32_t)newfs->buffer_bat, 1);
-  if(r=0) {
+  if(r==0) {
     semaphore_V(newfs->lock);
     return VFS_ERROR;
   }
