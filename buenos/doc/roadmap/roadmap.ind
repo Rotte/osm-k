@@ -1,0 +1,689 @@
+
+\clearpage\phantomsection\begin{theindex}\addcontentsline{toc}{chapter}{Index}
+{\bfseries\Large Symbols\hfil}\nopagebreak
+
+  \item \texttt{\_cswitch\_switch}\dotfill \hyperpage{23}
+  \item \texttt  {\_timer\_set\_ticks}\dotfill \hyperpage{107}
+  \item \texttt  {\_tlb\_get\_exception\_state}\dotfill \hyperpage{55}
+  \item \texttt  {\_tlb\_get\_maxindex}\dotfill \hyperpage{55}
+  \item \texttt  {\_tlb\_probe}\dotfill \hyperpage{55}
+  \item \texttt  {\_tlb\_read}\dotfill \hyperpage{56}
+  \item \texttt  {\_tlb\_set\_asid}\dotfill \hyperpage{55}
+  \item \texttt  {\_tlb\_write}\dotfill \hyperpage{56}
+  \item \texttt  {\_tlb\_write\_random}\dotfill \hyperpage{56}
+
+  \indexspace
+{\bfseries\Large A\hfil}\nopagebreak
+
+  \item absolute pathnames\dotfill \hyperpage{59}
+  \item adding memory mappings\dotfill \hyperpage{51}
+  \item adding system calls\dotfill \hyperpage{42}
+  \item \texttt{ADDR\_KERNEL\_TO\_PHYS}\dotfill \hyperpage{48}
+  \item \texttt{ADDR\_PHYS\_TO\_KERNEL}\dotfill \hyperpage{48}
+  \item address space identifier\dotfill \hyperpage{53}
+  \item ASID\dotfill \hyperpage{53}, \hyperpage{55}
+
+  \indexspace
+{\bfseries\Large B\hfil}\nopagebreak
+
+  \item BAT\dotfill \hyperpage{72}
+  \item binary compatibility\dotfill \hyperpage{42}
+  \item binary format, userland programs\dotfill \hyperpage{38}
+  \item block allocation table (TFS)\dotfill \hyperpage{72}
+  \item blocking interrupts\dotfill \hyperpage{22}
+  \item boot arguments\dotfill \hyperpage{15}
+  \item \texttt  {bootargs\_get}\dotfill \hyperpage{113}
+  \item booting\dotfill \hyperpage{111}
+  \item bottom half, device driver\dotfill \hyperpage{91}
+  \item bullet proofing\dotfill \hyperpage{41}
+  \item busy waiting\dotfill \hyperpage{14}
+
+  \indexspace
+{\bfseries\Large C\hfil}\nopagebreak
+
+  \item C calling convention\dotfill \hyperpage{15}
+  \item calling convention\dotfill \hyperpage{15}
+  \item \texttt{CHANGEDFLAGS}\dotfill \hyperpage{5}
+  \item closing files\dotfill \hyperpage{64}
+  \item co-processor unusable exception\dotfill \hyperpage{14}
+  \item compiling\hfill 
+ \subitem the system\dotfill \hyperpage{4}
+    \subitem userland programs\dotfill \hyperpage{5, 6}
+  \item \texttt  {CONFIG\_BOOTARGS\_MAX}\dotfill \hyperpage{115}
+  \item \texttt  {CONFIG\_MAX\_CPUS}\dotfill \hyperpage{114}
+  \item \texttt  {CONFIG\_MAX\_DEVICES}\dotfill \hyperpage{115}
+  \item \texttt  {CONFIG\_MAX\_FILESYSTEMS}\dotfill \hyperpage{115}
+  \item \texttt  {CONFIG\_MAX\_GNDS}\dotfill \hyperpage{115}
+  \item \texttt{CONFIG\_MAX\_GNDS}\dotfill \hyperpage{82}
+  \item \texttt  {CONFIG\_MAX\_OPEN\_FILES}\dotfill \hyperpage{115}
+  \item \texttt  {CONFIG\_MAX\_OPEN\_SOCKETS}\dotfill \hyperpage{115}
+  \item \texttt{CONFIG\_MAX\_OPEN\_SOCKETS}\dotfill \hyperpage{84}
+  \item \texttt  {CONFIG\_MAX\_SEMAPHORES}\dotfill \hyperpage{115}
+  \item \texttt  {CONFIG\_MAX\_THREADS}\dotfill \hyperpage{114}
+  \item \texttt{CONFIG\_MAX\_THREADS}\dotfill \hyperpage{17}
+  \item \texttt  {CONFIG\_POP\_QUEUE\_MIN\_AGE}\dotfill \hyperpage{115}
+  \item \texttt{CONFIG\_POP\_QUEUE\_MIN\_AGE}\dotfill \hyperpage{87}
+  \item \texttt  {CONFIG\_POP\_QUEUE\_SIZE}\dotfill \hyperpage{115}
+  \item \texttt{CONFIG\_POP\_QUEUE\_SIZE}\dotfill \hyperpage{85}
+  \item \texttt  {CONFIG\_SCHEDULER\_TIMESLICE}\dotfill \hyperpage{114}
+  \item \texttt{CONFIG\_SCHEDULER\_TIMESLICE}\dotfill \hyperpage{20}
+  \item \texttt  {CONFIG\_THREAD\_STACKSIZE}\dotfill \hyperpage{114}
+  \item \texttt  {CONFIG\_USERLAND\_STACK\_SIZE}\dotfill 
+		\hyperpage{116}
+  \item connection oriented protocol\dotfill \hyperpage{89}
+  \item console\dotfill \hyperpage{14}
+  \item context\dotfill \hyperpage{13}, \hyperpage{21}, \hyperpage{23}
+    \subitem restoring\dotfill \hyperpage{23}
+    \subitem saving\dotfill \hyperpage{23}
+    \subitem saving area\dotfill \hyperpage{24}
+    \subitem userland process\dotfill \hyperpage{37}
+  \item context switch\hfill 
+ \subitem definition\dotfill \hyperpage{21}
+    \subitem implementation\dotfill \hyperpage{23}
+  \item \texttt{context\_t}\dotfill \hyperpage{23, 24}, 
+		\hyperpage{37, 38}
+  \item conventions, filesystem\dotfill \hyperpage{59}
+  \item CPU status driver\dotfill \hyperpage{109}
+  \item \texttt  {cpustatus\_count}\dotfill \hyperpage{109}
+  \item \texttt  {cpustatus\_generate\_irq}\dotfill \hyperpage{109}
+  \item \texttt  {cpustatus\_init}\dotfill \hyperpage{109}
+  \item \texttt  {cpustatus\_interrupt\_handle}\dotfill \hyperpage{109}
+  \item creating\hfill 
+ \subitem a TFS volume\dotfill \hyperpage{6}
+    \subitem a thread\dotfill \hyperpage{17}
+    \subitem files\dotfill \hyperpage{66}
+  \item \texttt{cswitch\_switch}\dotfill \hyperpage{22}, \hyperpage{24}
+  \item \texttt{cswitch\_vector\_code}\dotfill \hyperpage{22}
+
+  \indexspace
+{\bfseries\Large D\hfil}\nopagebreak
+
+  \item \texttt  {DEBUG}\dotfill \hyperpage{15}
+  \item debug printing\dotfill \hyperpage{14}
+  \item \texttt{DEFAULT\_SHUTDOWN\_MAGIC}\dotfill \hyperpage{109}
+  \item deleting files\dotfill \hyperpage{66}
+  \item detecting hardware\dotfill \hyperpage{111}
+  \item device abstraction layers\dotfill \hyperpage{93}
+  \item device drivers\dotfill \hyperpage{91}
+    \subitem implementing new ones\dotfill \hyperpage{93}
+  \item \texttt  {device\_get}\dotfill \hyperpage{96}
+  \item \texttt  {device\_init}\dotfill \hyperpage{94}
+  \item \texttt{device\_t}\dotfill \hyperpage{94}
+  \item devices\dotfill \hyperpage{91}
+  \item directories\dotfill \hyperpage{59}
+  \item dirty bit\dotfill \hyperpage{52}
+  \item dirty memory page\dotfill \hyperpage{52}
+  \item disk driver\dotfill \hyperpage{103}
+  \item disk scheduler\dotfill \hyperpage{103}, \hyperpage{107}
+  \item \texttt  {disk\_block\_size}\dotfill \hyperpage{106}
+  \item \texttt  {disk\_init}\dotfill \hyperpage{103}
+  \item \texttt  {disk\_interrupt\_handle}\dotfill \hyperpage{104}
+  \item \texttt  {disk\_next\_request}\dotfill \hyperpage{105}
+  \item \texttt  {disk\_read\_block}\dotfill \hyperpage{105}
+  \item \texttt  {disk\_submit\_request}\dotfill \hyperpage{105}
+  \item \texttt  {disk\_total\_blocks}\dotfill \hyperpage{106}
+  \item \texttt  {disk\_write\_block}\dotfill \hyperpage{105}
+  \item \texttt  {disksched\_schedule}\dotfill \hyperpage{107}
+  \item DMA\dotfill \hyperpage{91}
+  \item driver\hfill 
+ \subitem disk\dotfill \hyperpage{103}
+    \subitem filesystem\dotfill \hyperpage{69}
+    \subitem interrupt driven TTY\dotfill \hyperpage{101}
+    \subitem polling TTY\dotfill \hyperpage{99}
+  \item \texttt{drivers\_available}\dotfill \hyperpage{93, 94}
+  \item \texttt{DYING}\dotfill \hyperpage{17}, \hyperpage{20}
+
+  \indexspace
+{\bfseries\Large E\hfil}\nopagebreak
+
+  \item \texttt{elf\_parse\_header}\dotfill \hyperpage{39}
+  \item ELF\dotfill \hyperpage{38}
+  \item \texttt{elf\_info\_t}\dotfill \hyperpage{39}
+  \item \texttt  {elf\_parse\_header}\dotfill \hyperpage{39}
+  \item entry point\dotfill \hyperpage{39}
+  \item exception\dotfill \hyperpage{22}
+    \subitem handling\dotfill \hyperpage{24}
+    \subitem kernel exceptions\dotfill \hyperpage{25}
+    \subitem TLB exceptions\dotfill \hyperpage{53}
+    \subitem TLB miss, load reference\dotfill \hyperpage{53}
+    \subitem TLB miss, modified\dotfill \hyperpage{53}
+    \subitem TLB miss, store reference\dotfill \hyperpage{53}
+  \item exception handling\dotfill \hyperpage{24}
+  \item \texttt{EXCEPTION\_TLBL}\dotfill \hyperpage{53}
+  \item \texttt{EXCEPTION\_TLBM}\dotfill \hyperpage{53}
+  \item \texttt{EXCEPTION\_TLBS}\dotfill \hyperpage{53}
+  \item execution context\dotfill \hyperpage{22}
+  \item EXL bit\dotfill \hyperpage{24}, \hyperpage{42}
+
+  \indexspace
+{\bfseries\Large F\hfil}\nopagebreak
+
+  \item file operations, VFS\dotfill \hyperpage{64}
+  \item filename, maximum length of\dotfill \hyperpage{61}
+  \item \texttt{FILES}\dotfill \hyperpage{5}
+  \item files\hfill 
+ \subitem creating\dotfill \hyperpage{66}
+    \subitem deleting\dotfill \hyperpage{66}
+    \subitem open files\dotfill \hyperpage{64}
+    \subitem reading\dotfill \hyperpage{65}
+    \subitem writing\dotfill \hyperpage{65}
+  \item filesystem\dotfill \hyperpage{59}
+    \subitem conventions\dotfill \hyperpage{59}
+    \subitem directories\dotfill \hyperpage{59}
+    \subitem driver\dotfill \hyperpage{69}
+    \subitem free space\dotfill \hyperpage{69}
+    \subitem layers\dotfill \hyperpage{59}
+    \subitem limits\dotfill \hyperpage{61}
+    \subitem volume\dotfill \hyperpage{59, 60}
+  \item \texttt  {filesystems\_try\_all}\dotfill \hyperpage{71}
+  \item filling the TLB\dotfill \hyperpage{56}
+  \item floating point numbers\dotfill \hyperpage{14}
+  \item forceful unmount\dotfill \hyperpage{63}
+  \item frame, network\dotfill \hyperpage{79}
+  \item \texttt  {frame\_handler}\dotfill \hyperpage{80}
+  \item \texttt{frame\_handler\_t}\dotfill \hyperpage{80}
+  \item \texttt{FREE}\dotfill \hyperpage{16}, \hyperpage{20}
+  \item free space, filesystem\dotfill \hyperpage{69}
+  \item \texttt{fs\_t}\dotfill \hyperpage{69}
+
+  \indexspace
+{\bfseries\Large G\hfil}\nopagebreak
+
+  \item GBD\dotfill \hyperpage{96}
+  \item \texttt{GBD\_OPERATION\_READ}\dotfill \hyperpage{96}
+  \item \texttt{gbd\_operation\_t}\dotfill \hyperpage{96}
+  \item \texttt{GBD\_OPERATION\_WRITE}\dotfill \hyperpage{96}
+  \item \texttt{gbd\_request\_t}\dotfill \hyperpage{96}
+  \item \texttt{gbd\_t}\dotfill \hyperpage{96}
+  \item GCD\dotfill \hyperpage{96}
+  \item generic devices\dotfill \hyperpage{93}
+    \subitem block\dotfill \hyperpage{59}, \hyperpage{96}
+    \subitem character\dotfill \hyperpage{96}
+    \subitem network\dotfill \hyperpage{79}, \hyperpage{99}
+  \item GND\dotfill \hyperpage{79}, \hyperpage{99}
+  \item \texttt{gnd\_t}\dotfill \hyperpage{99}
+  \item GNU Make\dotfill \hyperpage{4}
+
+  \indexspace
+{\bfseries\Large H\hfil}\nopagebreak
+
+  \item halting the operating system\dotfill \hyperpage{43}
+  \item handling exceptions, userland\dotfill \hyperpage{41}
+  \item hardware\hfill 
+ \subitem initialization\dotfill \hyperpage{111}
+    \subitem memory page size\dotfill \hyperpage{48}
+  \item hardware/software interface\dotfill \hyperpage{9}
+  \item header\hfill 
+ \subitem network\dotfill \hyperpage{79}
+    \subitem POP\dotfill \hyperpage{85}
+
+  \indexspace
+{\bfseries\Large I\hfil}\nopagebreak
+
+  \item idle thread\dotfill \hyperpage{21}
+  \item \texttt{IDLE\_THREAD\_TID}\dotfill \hyperpage{21}
+  \item \texttt{IGNOREDREGEX}\dotfill \hyperpage{5}
+  \item implementing a device driver\dotfill \hyperpage{93}
+  \item \texttt{init\_startup\_thread()}\dotfill \hyperpage{112}
+  \item inter-CPU interrupts\dotfill \hyperpage{109}
+  \item interrupt\hfill 
+ \subitem handler\dotfill \hyperpage{10}, \hyperpage{22}, 
+		\hyperpage{92}
+    \subitem inter-CPU\dotfill \hyperpage{109}
+    \subitem stack\dotfill \hyperpage{13}, \hyperpage{24}
+    \subitem stack area\dotfill \hyperpage{23}
+    \subitem TTY driver\dotfill \hyperpage{101}
+    \subitem vectors\dotfill \hyperpage{22}
+  \item \texttt  {interrupt\_handle}\dotfill \hyperpage{92}
+  \item \texttt{interrupt\_handle}\dotfill \hyperpage{23}
+  \item \texttt{interrupt\_init}\dotfill \hyperpage{23}
+  \item \texttt  {interrupt\_register}\dotfill \hyperpage{92}
+  \item invoking \texttt{YAMS}\dotfill \hyperpage{4}
+  \item \texttt{io\_descriptor\_t}\dotfill \hyperpage{94}
+  \item IRQ, shared\dotfill \hyperpage{91}
+
+  \indexspace
+{\bfseries\Large K\hfil}\nopagebreak
+
+  \item kernel\hfill 
+ \subitem boot arguments\dotfill \hyperpage{15}
+    \subitem configuration\dotfill \hyperpage{114}
+    \subitem exceptions\dotfill \hyperpage{25}
+    \subitem programming\dotfill \hyperpage{13}
+    \subitem stack\dotfill \hyperpage{13}
+    \subitem using memory\dotfill \hyperpage{13}
+  \item kernel memory segment\hfill 
+ \subitem mapped\dotfill \hyperpage{49}
+    \subitem unmapped\dotfill \hyperpage{49}
+    \subitem unmapped uncached\dotfill \hyperpage{49}
+  \item \texttt  {kernel\_exception\_handle}\dotfill \hyperpage{25}
+  \item \texttt{kernel\_exception\_handle}\dotfill \hyperpage{24}
+  \item \texttt{kernel\_interrupt\_stacks}\dotfill \hyperpage{22, 23}
+  \item \texttt{kmalloc}\dotfill \hyperpage{13}, \hyperpage{49}
+  \item \texttt{kprintf}\dotfill \hyperpage{14}
+  \item \texttt{kwrite}\dotfill \hyperpage{14}
+
+  \indexspace
+{\bfseries\Large L\hfil}\nopagebreak
+
+  \item list of system calls\dotfill \hyperpage{42}
+  \item LL instruction\dotfill \hyperpage{27}
+  \item loopback address, network\dotfill \hyperpage{79}
+
+  \indexspace
+{\bfseries\Large M\hfil}\nopagebreak
+
+  \item Make\dotfill \hyperpage{4}
+  \item makefiles\dotfill \hyperpage{5}
+  \item mapped memory region\dotfill \hyperpage{52}
+  \item mapping memory\dotfill \hyperpage{50, 51}
+  \item master directory block (TFS)\dotfill \hyperpage{72}
+  \item maximum length\hfill 
+ \subitem filename\dotfill \hyperpage{61}
+    \subitem pathname\dotfill \hyperpage{61}
+  \item MD\dotfill \hyperpage{72}
+  \item meminfo\dotfill \hyperpage{108}
+  \item \texttt  {meminfo\_get\_pages}\dotfill \hyperpage{108}
+  \item \texttt  {meminfo\_init}\dotfill \hyperpage{108}
+  \item memory\hfill 
+ \subitem mapped I/O\dotfill \hyperpage{91}
+    \subitem mapped range\dotfill \hyperpage{52}
+    \subitem mapping\dotfill \hyperpage{49--51}
+    \subitem page size\dotfill \hyperpage{48}
+    \subitem reservation, page pool\dotfill \hyperpage{49}
+    \subitem segmentation\dotfill \hyperpage{48}
+    \subitem segments\dotfill \hyperpage{13}
+    \subitem user mapped region\dotfill \hyperpage{48}
+    \subitem using in the kernel\dotfill \hyperpage{13}
+  \item memory management unit\dotfill \hyperpage{52}
+  \item memory segments\hfill 
+ \subitem kernel mapped\dotfill \hyperpage{49}
+    \subitem kernel unmapped\dotfill \hyperpage{49}
+    \subitem kernel unmapped uncached\dotfill \hyperpage{49}
+    \subitem supervisor mapped\dotfill \hyperpage{49}
+  \item metadevice drivers\dotfill \hyperpage{108}
+  \item MMU\dotfill \hyperpage{52}
+  \item \texttt{MODULES}\dotfill \hyperpage{5}
+  \item mount-point\dotfill \hyperpage{59, 60}
+  \item mounting filesystems\dotfill \hyperpage{60}, \hyperpage{67}
+
+  \indexspace
+{\bfseries\Large N\hfil}\nopagebreak
+
+  \item naming conventions\dotfill \hyperpage{14}
+  \item network\hfill 
+ \subitem addresses\dotfill \hyperpage{79}
+    \subitem driver\dotfill \hyperpage{103}
+    \subitem frame\dotfill \hyperpage{79}
+    \subitem header\dotfill \hyperpage{79}
+    \subitem layers\dotfill \hyperpage{79}
+    \subitem payload\dotfill \hyperpage{79}
+    \subitem service API\dotfill \hyperpage{81}
+    \subitem service thread\dotfill \hyperpage{81}
+    \subitem stack\dotfill \hyperpage{79}
+  \item \texttt  {network\_free\_frame}\dotfill \hyperpage{83}
+  \item \texttt  {network\_get\_broadcast\_address}\dotfill 
+		\hyperpage{82}
+  \item \texttt  {network\_get\_loopback\_address}\dotfill 
+		\hyperpage{82}
+  \item \texttt  {network\_get\_mtu}\dotfill \hyperpage{82}
+  \item \texttt  {network\_get\_source\_address}\dotfill \hyperpage{82}
+  \item \texttt  {network\_init}\dotfill \hyperpage{81}
+  \item \texttt{network\_protocols}\dotfill \hyperpage{80}
+  \item \texttt{network\_protocols\_t}\dotfill \hyperpage{80}
+  \item \texttt  {network\_receive\_frame}\dotfill \hyperpage{81}
+  \item \texttt  {network\_receive\_thread}\dotfill \hyperpage{81}
+  \item \texttt  {network\_send}\dotfill \hyperpage{82}
+  \item \texttt  {network\_send\_interface}\dotfill \hyperpage{83}
+  \item networking\dotfill \hyperpage{79}
+  \item NIC\dotfill \hyperpage{79}, \hyperpage{103}
+  \item \texttt{NONREADY}\dotfill \hyperpage{17}
+
+  \indexspace
+{\bfseries\Large O\hfil}\nopagebreak
+
+  \item open files\dotfill \hyperpage{64}
+  \item \texttt{open\_sockets}\dotfill \hyperpage{84}
+  \item \texttt{open\_sockets\_sem}\dotfill \hyperpage{84}
+  \item \texttt{openfile\_table}\dotfill \hyperpage{62}
+
+  \indexspace
+{\bfseries\Large P\hfil}\nopagebreak
+
+  \item Packet Oriented Protocol\dotfill \hyperpage{83}
+  \item page pool\dotfill \hyperpage{49}
+  \item page size, memory\dotfill \hyperpage{48}
+  \item page tables\dotfill \hyperpage{50}
+  \item \texttt{pagepool\_free\_pages}\dotfill \hyperpage{49}
+  \item \texttt  {pagepool\_free\_phys\_page}\dotfill \hyperpage{50}
+  \item \texttt  {pagepool\_get\_phys\_page}\dotfill \hyperpage{50}
+  \item \texttt  {pagepool\_init}\dotfill \hyperpage{49}
+  \item \texttt{pagetable\_t}\dotfill \hyperpage{50}
+  \item pathname\hfill 
+ \subitem absolute\dotfill \hyperpage{59}
+    \subitem maximum length\dotfill \hyperpage{61}
+  \item payload, network\dotfill \hyperpage{79}
+  \item physical memory address\dotfill \hyperpage{49}
+  \item polling TTY driver\dotfill \hyperpage{99}
+  \item \texttt  {polltty\_getchar}\dotfill \hyperpage{99}
+  \item \texttt  {polltty\_init}\dotfill \hyperpage{99}
+  \item \texttt  {polltty\_putchar}\dotfill \hyperpage{101}
+  \item POP\dotfill \hyperpage{83}, \hyperpage{85}
+    \subitem header\dotfill \hyperpage{85}
+    \subitem port numbers\dotfill \hyperpage{83}
+    \subitem queue\dotfill \hyperpage{85}
+  \item \texttt  {pop\_init}\dotfill \hyperpage{86}
+  \item \texttt  {pop\_push\_frame}\dotfill \hyperpage{86}
+  \item \texttt{pop\_push\_frame}\dotfill \hyperpage{86}
+  \item \texttt{pop\_queue\_sem}\dotfill \hyperpage{85}
+  \item \texttt  {pop\_service\_thread}\dotfill \hyperpage{87}
+  \item port numbers, POP\dotfill \hyperpage{83}
+  \item \texttt{POWEROFF\_SHUTDOWN\_MAGIC}\dotfill \hyperpage{109}
+  \item priority, thread\dotfill \hyperpage{20}
+  \item process startup\dotfill \hyperpage{37}
+  \item \texttt  {process\_start}\dotfill \hyperpage{37}
+  \item program counter\dotfill \hyperpage{22}
+  \item program entry point\dotfill \hyperpage{39}
+
+  \indexspace
+{\bfseries\Large Q\hfil}\nopagebreak
+
+  \item queue, POP\dotfill \hyperpage{85}
+
+  \indexspace
+{\bfseries\Large R\hfil}\nopagebreak
+
+  \item random numbers\dotfill \hyperpage{113}
+    \subitem seed\dotfill \hyperpage{113}
+  \item read-only memory mapping\dotfill \hyperpage{52}
+  \item read-only segment\dotfill \hyperpage{39}
+  \item read-write segment\dotfill \hyperpage{39}
+  \item reading files\dotfill \hyperpage{65}
+  \item \texttt{READY}\dotfill \hyperpage{16}, \hyperpage{20}
+  \item ready to run list\dotfill \hyperpage{20}
+  \item real time clock\dotfill \hyperpage{108}
+  \item receive service thread, network\dotfill \hyperpage{81}
+  \item registering interrupt handlers\dotfill \hyperpage{92}
+  \item registers\hfill 
+ \subitem a0--a3\dotfill \hyperpage{42}
+    \subitem v0\dotfill \hyperpage{42}
+  \item removing files\dotfill \hyperpage{66}
+  \item resource waiting\dotfill \hyperpage{28}
+  \item return values, VFS\dotfill \hyperpage{60}
+  \item RMW sequence\dotfill \hyperpage{27}
+  \item RTC\dotfill \hyperpage{108}
+  \item \texttt  {rtc\_get\_clockspeed}\dotfill \hyperpage{108}
+  \item \texttt  {rtc\_get\_msec}\dotfill \hyperpage{108}
+  \item \texttt  {rtc\_init}\dotfill \hyperpage{108}
+  \item \texttt{RUNNING}\dotfill \hyperpage{16}, \hyperpage{20}
+
+  \indexspace
+{\bfseries\Large S\hfil}\nopagebreak
+
+  \item SC instruction\dotfill \hyperpage{27}
+  \item scheduler\dotfill \hyperpage{20}
+    \subitem locking\dotfill \hyperpage{20}
+  \item \texttt  {scheduler\_add\_ready}\dotfill \hyperpage{21}
+  \item \texttt{scheduler\_current\_thread}\dotfill \hyperpage{20}, 
+		\hyperpage{23}
+  \item \texttt{scheduler\_ready\_to\_run}\dotfill \hyperpage{20, 21}
+  \item \texttt  {scheduler\_schedule}\dotfill \hyperpage{20}
+  \item segments, memory\dotfill \hyperpage{13}, \hyperpage{48}
+  \item \texttt  {semaphore\_create}\dotfill \hyperpage{32}
+  \item \texttt  {semaphore\_destroy}\dotfill \hyperpage{33}
+  \item \texttt  {semaphore\_P}\dotfill \hyperpage{33}
+  \item \texttt{semaphore\_P}\dotfill \hyperpage{31}
+  \item \texttt{semaphore\_t}\dotfill \hyperpage{32}
+  \item \texttt{semaphore\_table}\dotfill \hyperpage{32}
+  \item \texttt{semaphore\_table\_slock}\dotfill \hyperpage{32}
+  \item \texttt  {semaphore\_V}\dotfill \hyperpage{33}
+  \item \texttt{semaphore\_V}\dotfill \hyperpage{32}
+  \item semaphores\dotfill \hyperpage{31}
+    \subitem implementation\dotfill \hyperpage{32}
+  \item service API, network\dotfill \hyperpage{81}
+  \item service thread, network\dotfill \hyperpage{81}
+  \item shared IRQ\dotfill \hyperpage{91}
+  \item \texttt  {shutdown}\dotfill \hyperpage{109}
+  \item shutdown driver\dotfill \hyperpage{108}
+  \item \texttt  {shutdown\_init}\dotfill \hyperpage{108}
+  \item size\hfill 
+ \subitem memory page\dotfill \hyperpage{48}
+    \subitem TLB\dotfill \hyperpage{55}
+  \item sleep queue\dotfill \hyperpage{28}
+    \subitem implementation\dotfill \hyperpage{30}
+    \subitem usage\dotfill \hyperpage{28}
+  \item \texttt{SLEEPING}\dotfill \hyperpage{17}, \hyperpage{20}
+  \item sleeping\dotfill \hyperpage{28}
+  \item \texttt  {sleepq\_add}\dotfill \hyperpage{30}
+  \item \texttt{sleepq\_add}\dotfill \hyperpage{28}
+  \item \texttt{sleepq\_hashtable}\dotfill \hyperpage{30}
+  \item \texttt  {sleepq\_init}\dotfill \hyperpage{31}
+  \item \texttt{sleepq\_slock}\dotfill \hyperpage{30}
+  \item \texttt  {sleepq\_wake}\dotfill \hyperpage{30}
+  \item \texttt{sleepq\_wake}\dotfill \hyperpage{28}
+  \item \texttt  {sleepq\_wake\_all}\dotfill \hyperpage{31}
+  \item \texttt{sleepq\_wake\_all}\dotfill \hyperpage{28}
+  \item \texttt{sleeps\_on}\dotfill \hyperpage{19, 20}, 
+		\hyperpage{30, 31}
+  \item SMP\dotfill \hyperpage{11}
+  \item \texttt  {socket\_close}\dotfill \hyperpage{85}
+  \item \texttt  {socket\_connect}\dotfill \hyperpage{89}
+  \item \texttt{socket\_connect}\dotfill \hyperpage{84}
+  \item \texttt{socket\_descriptor\_t}\dotfill \hyperpage{84}
+  \item \texttt  {socket\_init}\dotfill \hyperpage{84}
+  \item \texttt  {socket\_listen}\dotfill \hyperpage{89}
+  \item \texttt{socket\_listen}\dotfill \hyperpage{84}
+  \item \texttt  {socket\_open}\dotfill \hyperpage{84}
+  \item \texttt  {socket\_read}\dotfill \hyperpage{89}
+  \item \texttt{socket\_read}\dotfill \hyperpage{84}
+  \item \texttt  {socket\_recvfrom}\dotfill \hyperpage{88}
+  \item \texttt{socket\_recvfrom}\dotfill \hyperpage{84}
+  \item \texttt  {socket\_sendto}\dotfill \hyperpage{88}
+  \item \texttt{socket\_sendto}\dotfill \hyperpage{84}
+  \item \texttt  {socket\_write}\dotfill \hyperpage{89}
+  \item \texttt{socket\_write}\dotfill \hyperpage{84}
+  \item sockets, network\dotfill \hyperpage{83, 84}
+  \item software interrupt\dotfill \hyperpage{42}
+  \item software interrupt 0\dotfill \hyperpage{19}
+  \item SOP\dotfill \hyperpage{89}
+  \item \texttt{SOURCES}\dotfill \hyperpage{6}
+  \item spinlock\dotfill \hyperpage{27}
+  \item \texttt  {spinlock\_acquire}\dotfill \hyperpage{28}
+  \item \texttt  {spinlock\_release}\dotfill \hyperpage{28}
+  \item \texttt  {spinlock\_reset}\dotfill \hyperpage{28}
+  \item stack\dotfill \hyperpage{13}
+    \subitem for interrupts\dotfill \hyperpage{23}
+    \subitem kernel\dotfill \hyperpage{13}
+  \item stack pointer\dotfill \hyperpage{22}
+  \item start-up, system\dotfill \hyperpage{112}
+  \item startup of userland processes\dotfill \hyperpage{37}
+  \item Stream Oriented Protocol\dotfill \hyperpage{89}
+  \item supervisor mapped memory segment\dotfill \hyperpage{49}
+  \item synchronization\dotfill \hyperpage{27}
+  \item \texttt  {syscall\_close}\dotfill \hyperpage{43}
+  \item \texttt  {syscall\_create}\dotfill \hyperpage{43}
+  \item \texttt  {syscall\_delete}\dotfill \hyperpage{43}
+  \item \texttt  {syscall\_exec}\dotfill \hyperpage{44}
+  \item \texttt  {syscall\_execp}\dotfill \hyperpage{45}
+  \item \texttt  {syscall\_exit}\dotfill \hyperpage{44}
+  \item \texttt  {syscall\_fork}\dotfill \hyperpage{45}
+  \item \texttt  {syscall\_halt}\dotfill \hyperpage{43}
+  \item \texttt  {syscall\_join}\dotfill \hyperpage{45}
+  \item \texttt  {syscall\_memlimit}\dotfill \hyperpage{45}
+  \item \texttt  {syscall\_open}\dotfill \hyperpage{43}
+  \item \texttt  {syscall\_read}\dotfill \hyperpage{44}
+  \item \texttt  {syscall\_seek}\dotfill \hyperpage{43}
+  \item \texttt  {syscall\_write}\dotfill \hyperpage{44}
+  \item system bootup\dotfill \hyperpage{111}
+  \item system calls\dotfill \hyperpage{41, 42}
+    \subitem adding new\dotfill \hyperpage{42}
+    \subitem number\dotfill \hyperpage{42}
+
+  \indexspace
+{\bfseries\Large T\hfil}\nopagebreak
+
+  \item test-and-set\dotfill \hyperpage{27}
+  \item TFS\dotfill \hyperpage{72}
+    \subitem block allocation table\dotfill \hyperpage{72}
+    \subitem creating a volume\dotfill \hyperpage{6}
+    \subitem master directory block\dotfill \hyperpage{72}
+    \subitem volume header block\dotfill \hyperpage{72}
+  \item \texttt  {tfs\_close}\dotfill \hyperpage{74}
+  \item \texttt  {tfs\_create}\dotfill \hyperpage{74}
+  \item \texttt  {tfs\_getfree}\dotfill \hyperpage{76}
+  \item \texttt  {tfs\_init}\dotfill \hyperpage{73}
+  \item \texttt  {tfs\_open}\dotfill \hyperpage{74}
+  \item \texttt  {tfs\_read}\dotfill \hyperpage{75}
+  \item \texttt  {tfs\_remove}\dotfill \hyperpage{75}
+  \item \texttt  {tfs\_unmount}\dotfill \hyperpage{74}
+  \item \texttt  {tfs\_write}\dotfill \hyperpage{76}
+  \item tfstool\dotfill \hyperpage{72}
+  \item \texttt  {thread\_create}\dotfill \hyperpage{19}
+  \item \texttt  {thread\_finish}\dotfill \hyperpage{19}
+  \item \texttt  {thread\_get\_current\_thread}\dotfill \hyperpage{19}
+  \item \texttt{thread\_goto\_userland}\dotfill \hyperpage{38}
+  \item \texttt  {thread\_run}\dotfill \hyperpage{19}
+  \item \texttt{thread\_run}\dotfill \hyperpage{21}
+  \item \texttt  {thread\_switch}\dotfill \hyperpage{19}
+  \item \texttt{thread\_switch}\dotfill \hyperpage{29}, \hyperpage{42}
+  \item \texttt{thread\_t}\dotfill \hyperpage{24}, \hyperpage{37}
+  \item \texttt{thread\_table}\dotfill \hyperpage{16}
+  \item \texttt{thread\_table\_init}\dotfill \hyperpage{17}
+  \item \texttt{thread\_table\_slock}\dotfill \hyperpage{17}, 
+		\hyperpage{20}
+  \item threading system\dotfill \hyperpage{16}
+  \item threading, introduction\dotfill \hyperpage{10}
+  \item threads\dotfill \hyperpage{16}
+    \subitem context\dotfill \hyperpage{24}
+    \subitem creation\dotfill \hyperpage{17}
+    \subitem ID\dotfill \hyperpage{17}, \hyperpage{19}
+    \subitem library\dotfill \hyperpage{17}
+    \subitem priority\dotfill \hyperpage{20}
+    \subitem states\dotfill \hyperpage{16}
+    \subitem table\dotfill \hyperpage{17}, \hyperpage{24}
+  \item \texttt{TID}\dotfill \hyperpage{19}
+  \item \texttt{TID\_t}\dotfill \hyperpage{17}
+  \item timer\hfill 
+ \subitem driver\dotfill \hyperpage{107}
+    \subitem interrupt\dotfill \hyperpage{20}, \hyperpage{22}
+  \item \texttt  {timer\_set\_ticks}\dotfill \hyperpage{107}
+  \item timeslice\dotfill \hyperpage{20}
+  \item timeticks\dotfill \hyperpage{20}
+  \item TLB\dotfill \hyperpage{48}, \hyperpage{52}
+    \subitem exception wrappers\dotfill \hyperpage{53}
+    \subitem exceptions\dotfill \hyperpage{53}
+    \subitem filling\dotfill \hyperpage{56}
+    \subitem miss\dotfill \hyperpage{41}
+    \subitem miss (load) exception\dotfill \hyperpage{53}
+    \subitem miss (store) exception\dotfill \hyperpage{53}
+    \subitem modified exception\dotfill \hyperpage{53}
+    \subitem size\dotfill \hyperpage{55}
+  \item \texttt{tlb\_entry\_t}\dotfill \hyperpage{53}
+  \item \texttt{tlb\_exception\_state\_t}\dotfill \hyperpage{55}
+  \item \texttt  {tlb\_fill}\dotfill \hyperpage{57}
+  \item \texttt{tlb\_fill}\dotfill \hyperpage{51}
+  \item \texttt  {tlb\_load\_exception}\dotfill \hyperpage{53}
+  \item \texttt  {tlb\_modified\_exception}\dotfill \hyperpage{53}
+  \item \texttt  {tlb\_store\_exception}\dotfill \hyperpage{53}
+  \item top half, device driver\dotfill \hyperpage{91}
+  \item translation lookaside buffer\dotfill \hyperpage{52}
+  \item Trivial Filesystem\dotfill \hyperpage{72}
+  \item \texttt  {tty\_init}\dotfill \hyperpage{101}
+  \item \texttt  {tty\_interrupt\_handle}\dotfill \hyperpage{101}
+  \item \texttt  {tty\_read}\dotfill \hyperpage{102}
+  \item \texttt  {tty\_write}\dotfill \hyperpage{102}
+
+  \indexspace
+{\bfseries\Large U\hfil}\nopagebreak
+
+  \item UM bit\dotfill \hyperpage{24}
+  \item unmapping memory\dotfill \hyperpage{52}
+  \item unmount, forceful\dotfill \hyperpage{63}
+  \item unmounting filesystems\dotfill \hyperpage{67}
+  \item user mapped memory region\dotfill \hyperpage{48}
+  \item \texttt{user\_context}\dotfill \hyperpage{37}
+  \item \texttt  {user\_exception\_handle}\dotfill \hyperpage{41}
+  \item \texttt{user\_exception\_handle}\dotfill \hyperpage{24}
+  \item userland\dotfill \hyperpage{37}
+    \subitem binary format\dotfill \hyperpage{38}
+    \subitem compiling programs\dotfill \hyperpage{5, 6}
+    \subitem exception handling\dotfill \hyperpage{41}
+    \subitem process context\dotfill \hyperpage{37}
+    \subitem processes\dotfill \hyperpage{37}
+  \item userland/kernel interface\dotfill \hyperpage{9}
+  \item using the sleep queue\dotfill \hyperpage{28}
+
+  \indexspace
+{\bfseries\Large V\hfil}\nopagebreak
+
+  \item VFS\dotfill \hyperpage{60}
+    \subitem file operations\dotfill \hyperpage{64}
+    \subitem filesystem operations\dotfill \hyperpage{62}
+    \subitem operation\dotfill \hyperpage{63}
+    \subitem return values\dotfill \hyperpage{60}
+  \item \texttt  {vfs\_close}\dotfill \hyperpage{64}
+  \item \texttt  {vfs\_create}\dotfill \hyperpage{66}
+  \item \texttt  {vfs\_deinit}\dotfill \hyperpage{63}
+  \item \texttt  {vfs\_end\_op}\dotfill \hyperpage{63}
+  \item \texttt{VFS\_ERROR}\dotfill \hyperpage{61}
+  \item \texttt  {vfs\_getfree}\dotfill \hyperpage{69}
+  \item \texttt{VFS\_IN\_USE}\dotfill \hyperpage{60}
+  \item \texttt  {vfs\_init}\dotfill \hyperpage{62}
+  \item \texttt{VFS\_INVALID\_PARAMS}\dotfill \hyperpage{60}
+  \item \texttt{VFS\_LIMIT}\dotfill \hyperpage{60}
+  \item \texttt  {vfs\_mount}\dotfill \hyperpage{68}
+  \item \texttt  {vfs\_mount\_all}\dotfill \hyperpage{67}
+  \item \texttt  {vfs\_mount\_fs}\dotfill \hyperpage{68}
+  \item \texttt{VFS\_NAME\_LENGTH}\dotfill \hyperpage{61}
+  \item \texttt{VFS\_NO\_SUCH\_FS}\dotfill \hyperpage{60}
+  \item \texttt{VFS\_NOT\_FOUND}\dotfill \hyperpage{60}
+  \item \texttt{VFS\_NOT\_OPEN}\dotfill \hyperpage{60}
+  \item \texttt{VFS\_NOT\_SUPPORTED}\dotfill \hyperpage{60}
+  \item \texttt{VFS\_OK}\dotfill \hyperpage{60}
+  \item \texttt{vfs\_op\_sem}\dotfill \hyperpage{62}
+  \item \texttt  {vfs\_open}\dotfill \hyperpage{64}
+  \item \texttt{vfs\_ops}\dotfill \hyperpage{62}
+  \item \texttt{VFS\_PATH\_LENGTH}\dotfill \hyperpage{61}
+  \item \texttt  {vfs\_read}\dotfill \hyperpage{65}
+  \item \texttt  {vfs\_remove}\dotfill \hyperpage{67}
+  \item \texttt  {vfs\_seek}\dotfill \hyperpage{65}
+  \item \texttt  {vfs\_start\_op}\dotfill \hyperpage{63}
+  \item \texttt{vfs\_table}\dotfill \hyperpage{62}
+  \item \texttt{vfs\_unmount\_sem}\dotfill \hyperpage{62}
+  \item \texttt{VFS\_UNUSABLE}\dotfill \hyperpage{61}
+  \item \texttt{vfs\_usable}\dotfill \hyperpage{62}
+  \item \texttt  {vfs\_write}\dotfill \hyperpage{66}
+  \item virtual filesystem\dotfill \hyperpage{60}
+  \item virtual memory\dotfill \hyperpage{48}
+  \item VM\dotfill \hyperpage{48}
+  \item \texttt  {vm\_create\_pagetable}\dotfill \hyperpage{51}
+  \item \texttt{vm\_create\_pagetable}\dotfill \hyperpage{37}
+  \item \texttt  {vm\_destroy\_pagetable}\dotfill \hyperpage{51}
+  \item \texttt{vm\_init}\dotfill \hyperpage{49}
+  \item \texttt  {vm\_map}\dotfill \hyperpage{52}
+  \item \texttt  {vm\_set\_dirty}\dotfill \hyperpage{52}
+  \item \texttt  {vm\_unmap}\dotfill \hyperpage{52}
+  \item \texttt{volatile}\dotfill \hyperpage{94}
+  \item volume (filesystem)\dotfill \hyperpage{59}
+  \item volume header block (TFS)\dotfill \hyperpage{72}
+  \item volume, filesystem\dotfill \hyperpage{60}
+
+  \indexspace
+{\bfseries\Large W\hfil}\nopagebreak
+
+  \item waiting for a resource\dotfill \hyperpage{28}
+  \item writing files\dotfill \hyperpage{65}
+
+  \indexspace
+{\bfseries\Large Y\hfil}\nopagebreak
+
+  \item YAMS\dotfill \hyperpage{4}
+    \subitem invoking\dotfill \hyperpage{4}
+  \item \texttt{yamst}\dotfill \hyperpage{4}
+
+  \indexspace
+{\bfseries\Large Z\hfil}\nopagebreak
+
+  \item zombie\dotfill \hyperpage{45}
+
+\end{theindex}

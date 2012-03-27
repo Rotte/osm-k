@@ -1,0 +1,1033 @@
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=latex 2011.10.26)  3 FEB 2012 14:54
+entering extended mode
+ %&-line parsing enabled.
+**roadmap.tex
+(./roadmap.tex
+LaTeX2e <2009/09/24>
+Babel <v3.8l> and hyphenation patterns for english, usenglishmax, dumylang, noh
+yphenation, loaded.
+(/usr/share/texmf-texlive/tex/latex/base/report.cls
+Document Class: report 2007/10/19 v1.4h Standard LaTeX document class
+(/usr/share/texmf-texlive/tex/latex/base/size10.clo
+File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@chapter=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/share/texmf-texlive/tex/latex/ntgclass/a4.sty
+Package: a4 2004/04/15 v1.2g A4 based page layout
+)
+(/usr/share/texmf-texlive/tex/generic/epsf/epsf.sty
+This is `epsf.tex' v2.7.3 <23 July 2005>
+\epsffilein=\read1
+\epsfframemargin=\dimen103
+\epsfframethickness=\dimen104
+\epsfrsize=\dimen105
+\epsftmp=\dimen106
+\epsftsize=\dimen107
+\epsfxsize=\dimen108
+\epsfysize=\dimen109
+\pspoints=\dimen110
+) (/usr/share/texmf-texlive/tex/latex/base/latexsym.sty
+Package: latexsym 1998/08/17 v2.2e Standard LaTeX package (lasy symbols)
+\symlasy=\mathgroup4
+LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
+(Font)                  U/lasy/m/n --> U/lasy/b/n on input line 47.
+)
+(/usr/share/texmf-texlive/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2009/06/22 v3.00
+
+(/usr/share/texmf-texlive/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2009/06/22 v3.00 Basic AMSFonts support
+\@emptytoks=\toks14
+\symAMSa=\mathgroup5
+\symAMSb=\mathgroup6
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 96.
+))
+(/usr/share/texmf-texlive/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texmf-texlive/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks15
+)
+(/usr/share/texmf-texlive/tex/latex/graphics/graphics.sty
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texmf-texlive/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/etc/texmf/tex/latex/config/graphics.cfg
+File: graphics.cfg 2009/08/28 v1.8 graphics configuration of TeX Live
+)
+Package graphics Info: Driver file: dvips.def on input line 91.
+
+(/usr/share/texmf-texlive/tex/latex/graphics/dvips.def
+File: dvips.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
+))
+\Gin@req@height=\dimen111
+\Gin@req@width=\dimen112
+)
+(/usr/share/texmf-texlive/tex/latex/base/makeidx.sty
+Package: makeidx 2000/03/29 v1.0m Standard LaTeX package
+)
+(/usr/share/texmf-texlive/tex/latex/base/textcomp.sty
+Package: textcomp 2005/09/27 v1.99g Standard LaTeX package
+Package textcomp Info: Sub-encoding information:
+(textcomp)               5 = only ISO-Adobe without \textcurrency
+(textcomp)               4 = 5 + \texteuro
+(textcomp)               3 = 4 + \textohm
+(textcomp)               2 = 3 + \textestimated + \textcurrency
+(textcomp)               1 = TS1 - \textcircled - \t
+(textcomp)               0 = TS1 (full)
+(textcomp)             Font families with sub-encoding setting implement
+(textcomp)             only a restricted character set as indicated.
+(textcomp)             Family '?' is the default used for unknown fonts.
+(textcomp)             See the documentation for details.
+Package textcomp Info: Setting ? sub-encoding to TS1/1 on input line 71.
+
+(/usr/share/texmf-texlive/tex/latex/base/ts1enc.def
+File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
+)
+LaTeX Info: Redefining \oldstylenums on input line 266.
+Package textcomp Info: Setting cmr sub-encoding to TS1/0 on input line 281.
+Package textcomp Info: Setting cmss sub-encoding to TS1/0 on input line 282.
+Package textcomp Info: Setting cmtt sub-encoding to TS1/0 on input line 283.
+Package textcomp Info: Setting cmvtt sub-encoding to TS1/0 on input line 284.
+Package textcomp Info: Setting cmbr sub-encoding to TS1/0 on input line 285.
+Package textcomp Info: Setting cmtl sub-encoding to TS1/0 on input line 286.
+Package textcomp Info: Setting ccr sub-encoding to TS1/0 on input line 287.
+Package textcomp Info: Setting ptm sub-encoding to TS1/4 on input line 288.
+Package textcomp Info: Setting pcr sub-encoding to TS1/4 on input line 289.
+Package textcomp Info: Setting phv sub-encoding to TS1/4 on input line 290.
+Package textcomp Info: Setting ppl sub-encoding to TS1/3 on input line 291.
+Package textcomp Info: Setting pag sub-encoding to TS1/4 on input line 292.
+Package textcomp Info: Setting pbk sub-encoding to TS1/4 on input line 293.
+Package textcomp Info: Setting pnc sub-encoding to TS1/4 on input line 294.
+Package textcomp Info: Setting pzc sub-encoding to TS1/4 on input line 295.
+Package textcomp Info: Setting bch sub-encoding to TS1/4 on input line 296.
+Package textcomp Info: Setting put sub-encoding to TS1/5 on input line 297.
+Package textcomp Info: Setting uag sub-encoding to TS1/5 on input line 298.
+Package textcomp Info: Setting ugq sub-encoding to TS1/5 on input line 299.
+Package textcomp Info: Setting ul8 sub-encoding to TS1/4 on input line 300.
+Package textcomp Info: Setting ul9 sub-encoding to TS1/4 on input line 301.
+Package textcomp Info: Setting augie sub-encoding to TS1/5 on input line 302.
+Package textcomp Info: Setting dayrom sub-encoding to TS1/3 on input line 303.
+Package textcomp Info: Setting dayroms sub-encoding to TS1/3 on input line 304.
+
+Package textcomp Info: Setting pxr sub-encoding to TS1/0 on input line 305.
+Package textcomp Info: Setting pxss sub-encoding to TS1/0 on input line 306.
+Package textcomp Info: Setting pxtt sub-encoding to TS1/0 on input line 307.
+Package textcomp Info: Setting txr sub-encoding to TS1/0 on input line 308.
+Package textcomp Info: Setting txss sub-encoding to TS1/0 on input line 309.
+Package textcomp Info: Setting txtt sub-encoding to TS1/0 on input line 310.
+Package textcomp Info: Setting futs sub-encoding to TS1/4 on input line 311.
+Package textcomp Info: Setting futx sub-encoding to TS1/4 on input line 312.
+Package textcomp Info: Setting futj sub-encoding to TS1/4 on input line 313.
+Package textcomp Info: Setting hlh sub-encoding to TS1/3 on input line 314.
+Package textcomp Info: Setting hls sub-encoding to TS1/3 on input line 315.
+Package textcomp Info: Setting hlst sub-encoding to TS1/3 on input line 316.
+Package textcomp Info: Setting hlct sub-encoding to TS1/5 on input line 317.
+Package textcomp Info: Setting hlx sub-encoding to TS1/5 on input line 318.
+Package textcomp Info: Setting hlce sub-encoding to TS1/5 on input line 319.
+Package textcomp Info: Setting hlcn sub-encoding to TS1/5 on input line 320.
+Package textcomp Info: Setting hlcw sub-encoding to TS1/5 on input line 321.
+Package textcomp Info: Setting hlcf sub-encoding to TS1/5 on input line 322.
+Package textcomp Info: Setting pplx sub-encoding to TS1/3 on input line 323.
+Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 324.
+Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 325.
+Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 326.
+)
+(/usr/share/texmf-texlive/tex/latex/marvosym/marvosym.sty
+Package: marvosym 2006/05/11 v2.1 Martin Vogel's Symbols font definitions
+)
+(/usr/share/texmf-texlive/tex/latex/tools/tabularx.sty
+Package: tabularx 1999/01/07 v2.07 `tabularx' package (DPC)
+
+(/usr/share/texmf-texlive/tex/latex/tools/array.sty
+Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
+\col@sep=\dimen113
+\extrarowheight=\dimen114
+\NC@list=\toks16
+\extratabsurround=\skip43
+\backup@length=\skip44
+)
+\TX@col@width=\dimen115
+\TX@old@table=\dimen116
+\TX@old@col=\dimen117
+\TX@target=\dimen118
+\TX@delta=\dimen119
+\TX@cols=\count88
+\TX@ftn=\toks17
+)
+(/usr/share/texmf-texlive/tex/latex/tools/longtable.sty
+Package: longtable 2004/02/01 v4.11 Multi-page Table package (DPC)
+\LTleft=\skip45
+\LTright=\skip46
+\LTpre=\skip47
+\LTpost=\skip48
+\LTchunksize=\count89
+\LTcapwidth=\dimen120
+\LT@head=\box26
+\LT@firsthead=\box27
+\LT@foot=\box28
+\LT@lastfoot=\box29
+\LT@cols=\count90
+\LT@rows=\count91
+\c@LT@tables=\count92
+\c@LT@chunks=\count93
+\LT@p@ftn=\toks18
+)
+(/usr/share/texmf-texlive/tex/latex/tools/calc.sty
+Package: calc 2007/08/22 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count94
+\calc@Bcount=\count95
+\calc@Adimen=\dimen121
+\calc@Bdimen=\dimen122
+\calc@Askip=\skip49
+\calc@Bskip=\skip50
+LaTeX Info: Redefining \setlength on input line 76.
+LaTeX Info: Redefining \addtolength on input line 77.
+\calc@Ccount=\count96
+\calc@Cskip=\skip51
+)
+(/usr/share/texmf-texlive/tex/latex/graphics/color.sty
+Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
+
+(/etc/texmf/tex/latex/config/color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package color Info: Driver file: dvips.def on input line 130.
+
+(/usr/share/texmf-texlive/tex/latex/graphics/dvipsnam.def
+File: dvipsnam.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
+))
+(/usr/share/texmf-texlive/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2009/10/09 v6.79a Hypertext links for LaTeX
+
+(/usr/share/texmf-texlive/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2009/04/10 v2.0 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in pdf mode not detected.
+)
+(/usr/share/texmf-texlive/tex/generic/oberdiek/ifvtex.sty
+Package: ifvtex 2008/11/04 v1.4 Switches for detecting VTeX and its modes (HO)
+Package ifvtex Info: VTeX not detected.
+)
+(/usr/share/texmf-texlive/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2009/01/23 v0.5 Provides ifxetex conditional
+)
+(/usr/share/texmf-texlive/tex/latex/oberdiek/hycolor.sty
+Package: hycolor 2009/10/02 v1.5 Code for color options of hyperref/bookmark (H
+O)
+
+(/usr/share/texmf-texlive/tex/latex/oberdiek/xcolor-patch.sty
+Package: xcolor-patch 2009/10/02 xcolor patch
+))
+\@linkdim=\dimen123
+\Hy@linkcounter=\count97
+\Hy@pagecounter=\count98
+
+(/usr/share/texmf-texlive/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2009/10/09 v6.79a Hyperref: PDFDocEncoding definition (HO)
+)
+(/usr/share/texmf-texlive/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2007/12/12 v1.2 Prefix for e-TeX command names (HO)
+
+(/usr/share/texmf-texlive/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2007/09/09 v1.2 Providing info/warning/message (HO)
+)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)
+(/usr/share/texmf-texlive/tex/latex/latexconfig/hyperref.cfg
+File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
+)
+(/usr/share/texmf-texlive/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2009/08/13 v3.4 Keyval support for LaTeX options (HO)
+
+(/usr/share/texmf-texlive/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2009/07/30 v1.5 Key value parser with default handler suppor
+t (HO)
+))
+Package hyperref Info: Option `bookmarks' set `true' on input line 2864.
+Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 2864
+.
+Package hyperref Info: Option `breaklinks' set `true' on input line 2864.
+Package hyperref Info: Option `colorlinks' set `true' on input line 2864.
+Package hyperref Info: Hyper figures OFF on input line 2975.
+Package hyperref Info: Link nesting OFF on input line 2980.
+Package hyperref Info: Hyper index ON on input line 2983.
+Package hyperref Info: Plain pages OFF on input line 2990.
+Package hyperref Info: Backreferencing OFF on input line 2995.
+
+Implicit mode ON; LaTeX internals redefined
+Package hyperref Info: Bookmarks ON on input line 3191.
+(/usr/share/texmf-texlive/tex/latex/ltxmisc/url.sty
+\Urlmuskip=\muskip10
+Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 3428.
+
+(/usr/share/texmf-texlive/tex/generic/oberdiek/bitset.sty
+Package: bitset 2007/09/28 v1.0 Data type bit set (HO)
+
+(/usr/share/texmf-texlive/tex/generic/oberdiek/intcalc.sty
+Package: intcalc 2007/09/27 v1.1 Expandable integer calculations (HO)
+)
+(/usr/share/texmf-texlive/tex/generic/oberdiek/bigintcalc.sty
+Package: bigintcalc 2007/11/11 v1.1 Expandable big integer calculations (HO)
+
+(/usr/share/texmf-texlive/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2009/09/23 v0.6 LuaTeX support for pdfTeX utility functions
+ (HO)
+
+(/usr/share/texmf-texlive/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2009/04/17 v1.2 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+(/usr/share/texmf-texlive/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2009/08/05 v1.0 Some LaTeX kernel commands for general use (HO
+)
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+)))
+\Fld@menulength=\count99
+\Field@Width=\dimen124
+\Fld@charsize=\dimen125
+\Field@toks=\toks19
+Package hyperref Info: Hyper figures OFF on input line 4377.
+Package hyperref Info: Link nesting OFF on input line 4382.
+Package hyperref Info: Hyper index ON on input line 4385.
+Package hyperref Info: backreferencing OFF on input line 4392.
+Package hyperref Info: Link coloring ON on input line 4395.
+Package hyperref Info: Link coloring with OCG OFF on input line 4402.
+Package hyperref Info: PDF/A mode OFF on input line 4407.
+
+(/usr/share/texmf-texlive/tex/generic/oberdiek/atbegshi.sty
+Package: atbegshi 2008/07/31 v1.9 At begin shipout hook (HO)
+)
+\Hy@abspage=\count100
+\c@Item=\count101
+)
+*hyperref using driver hdvips*
+(/usr/share/texmf-texlive/tex/latex/hyperref/hdvips.def
+File: hdvips.def 2009/10/09 v6.79a Hyperref driver for dvips
+
+(/usr/share/texmf-texlive/tex/latex/hyperref/pdfmark.def
+File: pdfmark.def 2009/10/09 v6.79a Hyperref definitions for pdfmark specials
+
+
+Package hyperref Warning: You have enabled option `breaklinks'.
+(hyperref)                But driver `hdvips.def' does not suppport this.
+(hyperref)                Expect trouble with the link areas of broken links.
+
+\pdf@docset=\toks20
+\pdf@box=\box30
+\pdf@toks=\toks21
+\pdf@defaulttoks=\toks22
+\Fld@listcount=\count102
+))
+\tablewidth=\skip52
+\c@exercisec=\count103
+\@indexfile=\write3
+\openout3 = `roadmap.idx'.
+
+
+Writing index file roadmap.idx
+(/usr/share/texmf-texlive/tex/latex/fancyhdr/fancyhdr.sty
+\fancy@headwidth=\skip53
+\f@ncyO@elh=\skip54
+\f@ncyO@erh=\skip55
+\f@ncyO@olh=\skip56
+\f@ncyO@orh=\skip57
+\f@ncyO@elf=\skip58
+\f@ncyO@erf=\skip59
+\f@ncyO@olf=\skip60
+\f@ncyO@orf=\skip61
+) (./roadmap.aux)
+\openout1 = `roadmap.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 198.
+LaTeX Font Info:    ... okay on input line 198.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 198.
+LaTeX Font Info:    ... okay on input line 198.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 198.
+LaTeX Font Info:    ... okay on input line 198.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 198.
+LaTeX Font Info:    ... okay on input line 198.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 198.
+LaTeX Font Info:    ... okay on input line 198.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 198.
+LaTeX Font Info:    ... okay on input line 198.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 198.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 198.
+
+
+(/usr/share/texmf-texlive/tex/latex/base/ts1cmr.fd
+File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    ... okay on input line 198.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 198.
+LaTeX Font Info:    ... okay on input line 198.
+Package hyperref Info: Link coloring ON on input line 198.
+
+(/usr/share/texmf-texlive/tex/latex/hyperref/nameref.sty
+Package: nameref 2007/05/29 v2.31 Cross-referencing by name of section
+
+(/usr/share/texmf-texlive/tex/latex/oberdiek/refcount.sty
+Package: refcount 2008/08/11 v3.1 Data extraction from references (HO)
+)
+\c@section@level=\count104
+)
+LaTeX Info: Redefining \ref on input line 198.
+LaTeX Info: Redefining \pageref on input line 198.
+ (./roadmap.out)
+(./roadmap.out)
+\@outlinefile=\write4
+\openout4 = `roadmap.out'.
+
+\AtBeginShipoutBox=\box31
+LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <24.88> not available
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 207.
+LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <12> not available
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 213.
+
+Underfull \hbox (badness 10000) in paragraph at lines 220--222
+
+ []
+
+[1
+
+]
+LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10> not available
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 226.
+ [2] (./roadmap.toc
+LaTeX Font Info:    Try loading font information for U+lasy on input line 2.
+ (/usr/share/texmf-texlive/tex/latex/base/ulasy.fd
+File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
+)
+LaTeX Font Info:    Try loading font information for U+msa on input line 2.
+
+(/usr/share/texmf-texlive/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2009/06/22 v3.00 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 2.
+
+(/usr/share/texmf-texlive/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2009/06/22 v3.00 AMS symbols B
+) [3
+
+] [4])
+\tf@toc=\write5
+\openout5 = `roadmap.toc'.
+
+ [5] [6
+
+]
+Chapter 1.
+[1
+
+]
+LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <14.4> not available
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 352.
+ [2]
+LaTeX Font Info:    Try loading font information for U+mvs on input line 434.
+ (/usr/share/texmf-texlive/tex/latex/marvosym/umvs.fd) [3]
+Chapter 2.
+LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <8> not available
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 467.
+[4
+
+] [5] [6]
+Overfull \hbox (16.64671pt too wide) in paragraph at lines 737--737
+[]  \OT1/cmtt/m/n/10 yamst -lu tty0.socket # (in another window, socket is in t
+he main dir)[] 
+ []
+
+[7]
+Chapter 3.
+
+Overfull \hbox (0.37288pt too wide) in paragraph at lines 784--788
+\OT1/cmr/m/n/10 var-i-ous core func-tions used in the \OT1/cmtt/m/n/10 BUENOS \
+OT1/cmr/m/n/10 ker-nel re-side here (i.e. \OT1/cmtt/m/n/10 kernel[]panic\OT1/cm
+r/m/n/10 ,
+ []
+
+[8
+
+]
+File: pics/architecture.eps Graphic file (type eps)
+ <pics/architecture.eps> [9] [10]
+File: pics/buenos_memory.eps Graphic file (type eps)
+ <pics/buenos_memory.eps> [11] [12]
+[13] [14] [15]
+Chapter 4.
+[16
+
+]
+File: pics/thread_states.ps Graphic file (type eps)
+ <pics/thread_states.ps>
+Overfull \hbox (8.92767pt too wide) in paragraph at lines 1422--1424
+\OT1/cmr/m/n/10 Threads can be ma-nip-u-lated by fol-low-ing func-tions im-ple-
+mented in \OT1/cmtt/m/n/10 kernel/thread.c\OT1/cmr/m/n/10 : 
+ []
+
+[17] [18]
+Underfull \hbox (badness 10000) in paragraph at lines 1498--1498
+[]|\OT1/cmtt/m/n/10 kernel/thread.c,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1500--1500
+[]|\OT1/cmtt/m/n/10 kernel/[]interrupt.s,
+ []
+
+[19] [20]
+Underfull \hbox (badness 10000) in paragraph at lines 1652--1652
+[]|\OT1/cmtt/m/n/10 kernel/scheduler.c,
+ []
+
+[21] [22]
+Overfull \hbox (6.89445pt too wide) in paragraph at lines 1783--1793
+[]\OT1/cmr/m/n/10 (see [][][]sec-tion 4.2[][][][][]). The cur-rent thread is fo
+und from \OT1/cmtt/m/n/10 scheduler[]current[]thread\OT1/cmr/m/n/10 -
+ []
+
+
+Underfull \hbox (badness 2469) in paragraph at lines 1813--1815
+[]\OT1/cmr/m/n/10 This is
+ []
+
+[23] [24]
+Underfull \hbox (badness 10000) in paragraph at lines 1993--1993
+[]|\OT1/cmtt/m/n/10 kernel/exception.h,
+ []
+
+[25] [26]
+Chapter 5.
+[27
+
+] [28]
+Underfull \vbox (badness 2285) has occurred while \output is active []
+
+ [29]
+File: pics/sleepq.eps Graphic file (type eps)
+
+<pics/sleepq.eps> [30]
+Underfull \hbox (badness 10000) in paragraph at lines 2343--2343
+[]|\OT1/cmtt/m/n/10 kernel/sleepq.h,
+ []
+
+[31] [32]
+Underfull \hbox (badness 10000) in paragraph at lines 2491--2491
+[]|\OT1/cmtt/m/n/10 kernel/semaphore.h,
+ []
+
+[33]
+Overfull \hbox (5.2672pt too wide) in paragraph at lines 2578--2578
+[]\OT1/cmtt/m/n/10 void condition[]broadcast(cond[]t *cond, lock[]t *condition[
+]lock) 
+ []
+
+[34] [35] [36]
+Chapter 6.
+[37
+
+]
+Overfull \hbox (6.29272pt too wide) in paragraph at lines 2761--2763
+[]\OT1/cmr/m/n/10 Create a new page ta-ble for this thread by call-ing \OT1/cmt
+t/m/n/10 vm[]create[]pagetable()\OT1/cmr/m/n/10 . 
+ []
+
+[38] [39] [40]
+Underfull \hbox (badness 10000) in paragraph at lines 2978--2978
+[]|\OT1/cmtt/m/n/10 proc/elf.h,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2980--2980
+[]|\OT1/cmtt/m/n/10 proc/process.h,
+ []
+
+[41] [42] [43] [44] [45] [46] [47]
+Chapter 7.
+[48
+
+] [49]
+Underfull \hbox (badness 10000) in paragraph at lines 3552--3552
+[]|\OT1/cmtt/m/n/10 tlb[]entry[]t
+ []
+
+[50] [51] [52]
+Overfull \hbox (2.20688pt too wide) in paragraph at lines 3865--3868
+\OT1/cmr/m/n/10 The fol-low-ing wrap-per func-tions to CP0 TLB op-er-a-tions, i
+m-ple-mented in \OT1/cmtt/m/n/10 vm/[]tlb.S\OT1/cmr/m/n/10 ,
+ []
+
+[53] [54] [55] [56]
+Underfull \hbox (badness 10000) in paragraph at lines 4070--4070
+[]|\OT1/cmtt/m/n/10 vm/pagepool.h,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4074--4074
+[]|\OT1/cmtt/m/n/10 vm/tlb.h, vm/tlb.c,
+ []
+
+[57] [58]
+Chapter 8.
+[59
+
+] [60]
+Underfull \hbox (badness 10000) in paragraph at lines 4374--4374
+[]|\OT1/cmtt/m/n/10 char
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4388--4388
+[]|\OT1/cmtt/m/n/10 vfs[]entry[]t
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4388--4388
+\OT1/cmtt/m/n/10 [CONFIG[]MAX[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4419--4419
+[]|\OT1/cmtt/m/n/10 openfile[]entry[]t
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4419--4419
+\OT1/cmtt/m/n/10 [CONFIG[]MAX[]
+ []
+
+
+Underfull \vbox (badness 1496) has occurred while \output is active []
+
+ [61]
+[62] [63] [64] [65] [66] [67] [68]
+Underfull \hbox (badness 10000) in paragraph at lines 5110--5110
+[]|\OT1/cmtt/m/n/10 int (*)(struct
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5115--5115
+[]|\OT1/cmtt/m/n/10 int (*)(struct
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5115--5115
+\OT1/cmtt/m/n/10 fs[]struct *fs, char
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5120--5120
+[]|\OT1/cmtt/m/n/10 int (*)(struct
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5120--5120
+\OT1/cmtt/m/n/10 fs[]struct *fs, int
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5129--5129
+[]|\OT1/cmtt/m/n/10 int (*)(struct
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5129--5129
+\OT1/cmtt/m/n/10 fs[]struct *fs,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5129--5129
+\OT1/cmtt/m/n/10 int fileid, void
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5129--5129
+\OT1/cmtt/m/n/10 *buffer, int
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5129--5129
+\OT1/cmtt/m/n/10 bufsize, int
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5138--5138
+[]|\OT1/cmtt/m/n/10 int (*)(struct
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5138--5138
+\OT1/cmtt/m/n/10 fs[]struct *fs,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5138--5138
+\OT1/cmtt/m/n/10 int fileid, void
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5138--5138
+\OT1/cmtt/m/n/10 *buffer, int
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5138--5138
+\OT1/cmtt/m/n/10 datasize, int
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5143--5143
+[]|\OT1/cmtt/m/n/10 int (*)(struct
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5143--5143
+\OT1/cmtt/m/n/10 fs[]struct *fs, char
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5143--5143
+\OT1/cmtt/m/n/10 *filename, int
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5147--5147
+[]|\OT1/cmtt/m/n/10 int (*)(struct
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5147--5147
+\OT1/cmtt/m/n/10 fs[]struct *fs, char
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5151--5151
+[]|\OT1/cmtt/m/n/10 int (*)(struct
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 5153
+ []
+
+[69] [70] [71]
+File: pics/tfs.eps Graphic file (type eps)
+ <pics/tfs.eps>
+Underfull \hbox (badness 10000) in paragraph at lines 5247--5247
+[]|\OT1/cmtt/m/n/10 char
+ []
+
+
+Overfull \hbox (1.39146pt too wide) in paragraph at lines 5247--5247
+\OT1/cmtt/m/n/10 [TFS[]VOLUMENAME[]
+ []
+
+[72]
+Underfull \hbox (badness 10000) in paragraph at lines 5267--5267
+[]|\OT1/cmtt/m/n/10 char
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5267--5267
+\OT1/cmtt/m/n/10 [TFS[]FILENAME[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5280--5280
+[]|\OT1/cmtt/m/n/10 uint32[]t
+ []
+
+
+Overfull \hbox (1.39146pt too wide) in paragraph at lines 5280--5280
+\OT1/cmtt/m/n/10 [TFS[]BLOCKS[]MAX]| 
+ []
+
+[73] [74] [75]
+Underfull \hbox (badness 10000) in paragraph at lines 5518--5518
+[]|\OT1/cmtt/m/n/10 fs/filesystems.h,
+ []
+
+[76] [77] [78]
+Chapter 9.
+[79
+
+] [80] [81] [82] [83] [84] [85] [86] [87] [88]
+Underfull \hbox (badness 10000) in paragraph at lines 6520--6520
+[]|\OT1/cmtt/m/n/10 net/network.h,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 6522--6522
+[]|\OT1/cmtt/m/n/10 net/protocols.h,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 6524--6524
+[]|\OT1/cmtt/m/n/10 net/socket.h,
+ []
+
+[89] [90]
+Chapter 10.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [91
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 6646--6646
+[]|\OT1/cmtt/m/n/10 void (*)(device[]t
+ []
+
+[92]
+Underfull \hbox (badness 10000) in paragraph at lines 6684--6684
+[]|\OT1/cmtt/m/n/10 kernel/interrupt.h,
+ []
+
+File: pics/device.eps Graphic file (type eps)
+<pics/device.eps> [93]
+Underfull \hbox (badness 10000) in paragraph at lines 6775--6775
+[]|\OT1/cmtt/m/n/10 device[]t *
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 6775--6775
+\OT1/cmtt/m/n/10 (*)(io[]descriptor[]t
+ []
+
+
+Overfull \hbox (0.89748pt too wide) in paragraph at lines 6797--6797
+[]|\OT1/cmtt/m/n/10 generic[]device| 
+ []
+
+[94] [95]
+Underfull \hbox (badness 3088) in paragraph at lines 6918--6918
+[]|\OT1/cmr/m/n/10 int (*)(gcd[]t * gcd,
+ []
+
+
+Underfull \hbox (badness 3088) in paragraph at lines 6918--6918
+[]|\OT1/cmr/m/n/10 int (*)(gcd[]t * gcd,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 6954--6954
+[]|\OT1/cmtt/m/n/10 int (*)(gbd[]t *
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 6954--6954
+\OT1/cmtt/m/n/10 gbd, gbd[]request[]t
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 6966--6966
+[]|\OT1/cmtt/m/n/10 int (*)(gbd[]t
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 6966--6966
+\OT1/cmtt/m/n/10 *gbd, gbd[]request[]t
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 6969--6969
+[]|\OT1/cmtt/m/n/10 uint32[]t (*)(gbd[]t
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 6972--6972
+[]|\OT1/cmtt/m/n/10 uint32[]t (*)(gbd[]t
+ []
+
+
+Overfull \hbox (5.32437pt too wide) in paragraph at lines 7018--7023
+[]\OT1/cmr/m/n/10 The \OT1/cmtt/m/n/10 gbd[]operation[]t []\OT1/cmr/m/n/10 is a
+n enu-mer-a-tion of fol-low-ing val-ues: \OT1/cmtt/m/n/10 GBD[]OPERATION[]READ
+ []
+
+[96] [97] [98]
+Underfull \hbox (badness 10000) in paragraph at lines 7066--7066
+[]|\OT1/cmtt/m/n/10 int (*)(struct
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 7066--7066
+\OT1/cmtt/m/n/10 gnd[]struct *gnd,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 7066--7066
+\OT1/cmtt/m/n/10 void *frame,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 7066--7066
+\OT1/cmtt/m/n/10 network[]address[]t
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 7077--7077
+[]|\OT1/cmtt/m/n/10 int (*)(struct
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 7077--7077
+\OT1/cmtt/m/n/10 gnd[]struct *gnd,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 7081--7081
+[]|\OT1/cmtt/m/n/10 uint32[]t (*)(struct
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 7085--7085
+[]|\OT1/cmtt/m/n/10 network[]address[]t
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 7085--7085
+\OT1/cmtt/m/n/10 (*)(struct
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 7093--7093
+[]|\OT1/cmtt/m/n/10 drivers/device.h,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 7094--7094
+[]|\OT1/cmtt/m/n/10 drivers/drivers.h,
+ []
+
+[99] [100]
+Underfull \hbox (badness 10000) in paragraph at lines 7139--7139
+[]|\OT1/cmtt/m/n/10 drivers/polltty.c,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 7140--7140
+[]|\OT1/cmtt/m/n/10 lib/libc.c,
+ []
+
+[101]
+Underfull \hbox (badness 10000) in paragraph at lines 7291--7291
+[]|\OT1/cmtt/m/n/10 drivers/tty.c
+ []
+
+[102]
+Underfull \hbox (badness 10000) in paragraph at lines 7361--7361
+[]|\OT1/cmtt/m/n/10 volatile
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 7366--7366
+[]|\OT1/cmtt/m/n/10 volatile
+ []
+
+
+Overfull \hbox (0.89748pt too wide) in paragraph at lines 7366--7366
+[]|\OT1/cmtt/m/n/10 request[]served| 
+ []
+
+[103] [104] [105] [106]
+Underfull \hbox (badness 10000) in paragraph at lines 7646--7646
+[]|\OT1/cmtt/m/n/10 drivers/disk.h,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 7648--7648
+[]|\OT1/cmtt/m/n/10 drivers/disksched.h,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 7687--7687
+[]|\OT1/cmtt/m/n/10 drivers/timer.c,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 7687--7687
+\OT1/cmtt/m/n/10 drivers/timer.h,
+ []
+
+[107] [108]
+Underfull \hbox (badness 10000) in paragraph at lines 7806--7806
+[]|\OT1/cmtt/m/n/10 drivers/metadev.c,
+ []
+
+[109] [110]
+Chapter 11.
+[111
+
+] [112]
+Appendix A.
+
+Underfull \hbox (badness 10000) in paragraph at lines 8007--8007
+[]|\OT1/cmtt/m/n/10 drivers/bootargs.h,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8008--8008
+[]|\OT1/cmtt/m/n/10 lib/debug.h,
+ []
+
+[113
+
+]
+Appendix B.
+[114
+
+] [115] [116]
+Appendix C.
+[117
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 8142--8144
+[]\OT1/cmr/m/n/10 Miller, Pe-ter, \OT1/cmr/m/it/10 Re-cur-sive Make Con-sid-ere
+d Harm-ful\OT1/cmr/m/n/10 ,
+ []
+
+
+Overfull \hbox (22.06401pt too wide) in paragraph at lines 8142--8144
+[][][]$\OT1/cmtt/m/n/10 http : / / www . tip . net . au / []Emillerp / rmch / r
+ecu-[]make-[]cons-[]harm . html$[][][][] 
+ []
+
+(./roadmap.ind [118
+
+
+] [119
+
+
+] [120] [121] [122] [123] [124]) (./roadmap.aux) ) 
+Here is how much of TeX's memory you used:
+ 5699 strings out of 495062
+ 80804 string characters out of 1182643
+ 175191 words of memory out of 3000000
+ 8747 multiletter control sequences out of 15000+50000
+ 14519 words of font info for 59 fonts, out of 3000000 for 9000
+ 28 hyphenation exceptions out of 8191
+ 38i,12n,48p,284b,553s stack positions out of 5000i,500n,10000p,200000b,50000s
+
+Output written on roadmap.dvi (130 pages, 1013248 bytes).
