@@ -514,7 +514,7 @@ int newfs_read(fs_t *fs, int fileid, void *buffer, int bufsize, int offset)
     {
         /* Get the physical block of the logical block. Potentially read a new
          * single-indir block into the buffer. */
-        block = newfs_getblock(flatfs, b,
+        block = newfs_getblock(newfs, b,
                 (b - NEWFS_BLOCKS_DIRECT) % NEWFS_BLOCKS_SINDIR);
         /* We read the data into the BAT buffer because we don't use it for
          * anything else. */
@@ -590,12 +590,12 @@ int newfs_write(fs_t *fs, int fileid, void *buffer, int datasize, int offset)
   if (newfs->buffer_inode->filesize == 0)
     last_block = 0;
 
-  if (newfs->buffer_inode->blosk_dbl_indir > 0 && newfs_disk_action(newfs->disk, newfs->buffer_inode->block_dbl_indir, (uint32_t)newfs->buffer_di, 0) == 0) {
+  if (newfs->buffer_inode->block_dbl_indir > 0 && newfs_disk_action(newfs->disk, newfs->buffer_inode->block_dbl_indir, (uint32_t)newfs->buffer_di, 0) == 0) {
     semaphore_V(newfs->lock);
     return VFS_ERROR;
   }
  
-  if (b2 > last-block || newfs->buffer_inode->filesize == 0) {
+  if (b2 > last_block || newfs->buffer_inode->filesize == 0) {
     if(newfs_disk_action(newfs->disk, NEWFS_ALLOCATION_BLOCK, (uint32_t)newfs->buffer_bat,0) == 0) {
       semaphore_V(newfs->lock);
       return VFS_ERROR;
@@ -608,7 +608,7 @@ int newfs_write(fs_t *fs, int fileid, void *buffer, int datasize, int offset)
       }
     }
 
-    if (b2 >= NEWFS_BLOCKS_DIRECT + NEWFS_BLOCK_SINDIR && last_block < NEWFS_BLOCKS_DIRECT + NEWFS_BLOCKS_SINDIR) {
+    if (b2 >= NEWFS_BLOCKS_DIRECT + NEWFS_BLOCKS_SINDIR && last_block < NEWFS_BLOCKS_DIRECT + NEWFS_BLOCKS_SINDIR) {
       if(newfs_bm_alloc(newfs, &(newfs->buffer_inode->block_dbl_indir)) == -1 || newfs_disk_action(newfs->disk, newfs->buffer_inode->block_dbl_indir, (uint32_t)zeroblock, 1) == 0) {
 	semaphore_V(newfs->lock);
 	return VFS_ERROR;
@@ -633,7 +633,7 @@ int newfs_write(fs_t *fs, int fileid, void *buffer, int datasize, int offset)
 	return VFS_ERROR;
       }
       memcopy(written, (uint32_t *)(((uint32_t)newfs->buffer_bat) + (offset % NEWFS_BLOCK_SIZE)), buffer);
-      buffer = (void *)((Uint32_t)buffer + written);
+      buffer = (void *)((uint32_t)buffer + written);
     }
     else if (b == b2) {
       if(newfs_disk_action(newfs->disk, block, (uint32_t)newfs->buffer_bat, 0) == 0) {
@@ -711,7 +711,7 @@ int newfs_filecount(fs_t *fs, char *dirname)
     return VFS_ERROR;
   }
 
-  fir(i=0; i < NEWFS_MAX_FILES; ++i)
+  for(i=0; i < NEWFS_MAX_FILES; ++i)
     if(newfs->buffer_md[i].inode != 0)
       ++count;
 
@@ -743,7 +743,7 @@ int newfs_file(fs_t *fs, char *dirname, int idx, char *buffer)
 
   for(i=0; i < NEWFS_MAX_FILES; ++i) {
     if(newfs->buffer_md[i].inode != 0 && count++ == idx) {
-      strincopy(buffer, newfs->buffer_md[i].name, NEWFS_FILENAME_MAX);
+      stringcopy(buffer, newfs->buffer_md[i].name, NEWFS_FILENAME_MAX);
       semaphore_V(newfs->lock);
       return VFS_ERROR;
     }
