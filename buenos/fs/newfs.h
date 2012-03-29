@@ -17,15 +17,15 @@
 #define NEWFS_BLOCK_SIZE 512
 #define NEWFS_BLOCK_BITS (NEWFS_BLOCK_SIZE*8)
 
+/* 128 uint32s fit into a block. Used in declaration */
+#define NEWFS_BLOCK_INTS 128
+
 /* Magic number found on each newfs filesystem's header block. */
 #define NEWFS_MAGIC 0xFEEDBEEF
 
 /* Block numbers for system blocks */
 #define NEWFS_HEADER_BLOCK 0
 #define NEWFS_ALLOCATION_BLOCK 1
-
-/* Tilføjet af mig, for at kunne køre MAKE  */
-#define NEWFS_DIRECTORY_BLOCK  2
 
 /* Names are limited to 16 characters */
 #define NEWFS_VOLUMENAME_MAX 16

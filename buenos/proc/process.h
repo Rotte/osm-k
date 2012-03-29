@@ -73,7 +73,7 @@ void process_init();
 process_id_t process_spawn(const char *executable);
 
 process_id_t process_get_current_process(void);
-process_table_t *process_get_current_process_entr(void);
+process_table_t *process_get_current_process_entry(void);
 
 /* Stop the process and the thread it runs in. Sets the return value as well */
 void process_finish(int retval);
