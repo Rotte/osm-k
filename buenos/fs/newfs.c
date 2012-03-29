@@ -1023,15 +1023,14 @@ uint32_t newfs_getblock(newfs_t *newfs, uint32_t block, int indirbuf)
    Returns NULL if there is no directory seperator in the string. */
 char *split_path(char *filepath) {
   char *new;
-  start = filepath;
   
-  while (*filepath != '/' || *filepath != NULL)
+  while (*filepath != '/' || *filepath != '\0')
     filepath++;
 
-  if (*filepath == NULL)
+  if (*filepath == '\0')
     return NULL;
 
-  *filepath = NULL;
+  *filepath = '\0';
   new = filepath++;
 
   return new;
