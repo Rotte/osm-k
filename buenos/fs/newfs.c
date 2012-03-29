@@ -1040,6 +1040,13 @@ char *split_path(char *filepath) {
    inode, or zero if it does not exist.  The filename should not
    contain directory separators. */
 uint32_t newfs_inode_of_file(newfs_t *newfs, newfs_inode_t *dir, char *filename);
+/* {
+  if (dir->block[0] == 0)
+    return 0;
+
+  
+  
+    }*/
 
 /* Starting from the root directory, find the inode of the file given
    by the path (which may contain directory separators).  Implement
