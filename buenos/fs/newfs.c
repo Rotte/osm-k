@@ -56,9 +56,9 @@ void newfs_printfile_blocks(newfs_t *newfs, uint32_t inode);
 
 /* The block of the root directory. */
 int newfs_directory_block(newfs_t *newfs) {
-  return NEWFS_ALLOCATION_BLOCK +
-    newfs->totalblocks/(NEWFS_BLOCK_BITS) +
-    ((newfs->totalblocks % NEWFS_BLOCK_BITS == 0) ? 0 : 1);
+ return NEWFS_ALLOCATION_BLOCK +
+   newfs->totalblocks/(NEWFS_BLOCK_BITS) +
+   ((newfs->totalblocks % NEWFS_BLOCK_BITS == 0) ? 0 : 1);
 }
 
 /* The following functions have not been implemented, but are a good
@@ -96,18 +96,18 @@ uint32_t newfs_inode_of_path(newfs_t *newfs, char *filepath);
  */
 int blockbitmap_get(newfs_t *newfs, int pos, int l)
 {
-  uint32_t block_buffer[NEWFS_BLOCK_INTS];
-  KERNEL_ASSERT(pos >= 0);
-  KERNEL_ASSERT(pos < l);
+    uint32_t block_buffer[NEWFS_BLOCK_INTS];
+    KERNEL_ASSERT(pos >= 0);
+    KERNEL_ASSERT(pos < l);
 
-  /* first, load correct block into block buffer */
-  /* using a disk_action function similar to the one for flatfs, 0 for
-     read access */
-  newfs_disk_action(newfs->disk /* which we do not have*/, 
-                    (pos / NEWFS_BLOCK_BITS) + ((pos % NEWFS_BLOCK_BITS == 0) ? 0 : 1) + 1, (uint32_t) block_buffer, 0);
+    /* first, load correct block into block buffer */
+    /* using a disk_action function similar to the one for flatfs, 0 for
+       read access */
+    newfs_disk_action(newfs->disk /* which we do not have*/, 
+               (pos / NEWFS_BLOCK_BITS) + ((pos % NEWFS_BLOCK_BITS == 0) ? 0 : 1) + 1, (uint32_t) block_buffer, 0);
 
-  /* then use bitmap function */
-  return bitmap_get(block_buffer, pos % NEWFS_BLOCK_BITS);
+    /* then use bitmap function */
+    return bitmap_get(block_buffer, pos % NEWFS_BLOCK_BITS);
 }
 /**
  * Sets the given bit in the bitmap.
@@ -123,24 +123,24 @@ int blockbitmap_get(newfs_t *newfs, int pos, int l)
  */
 int blockbitmap_set(newfs_t *newfs, int pos, int l, int value)
 {
-  uint32_t block_buffer[NEWFS_BLOCK_INTS];
-  KERNEL_ASSERT(pos >= 0);
-  KERNEL_ASSERT(pos < l);
+    uint32_t block_buffer[NEWFS_BLOCK_INTS];
+    KERNEL_ASSERT(pos >= 0);
+    KERNEL_ASSERT(pos < l);
 
-  /* first, load correct block into block buffer */
-  /* using a disk_action function similar to the one for flatfs, 0 for
-     read access */
-  newfs_disk_action(newfs->disk /* which we do not have*/, 
-                    (pos / NEWFS_BLOCK_BITS) + ((pos % NEWFS_BLOCK_BITS == 0) ? 0 : 1) + 1, (uint32_t) block_buffer, 0);
+    /* first, load correct block into block buffer */
+    /* using a disk_action function similar to the one for flatfs, 0 for
+       read access */
+    newfs_disk_action(newfs->disk /* which we do not have*/, 
+                (pos / NEWFS_BLOCK_BITS) + ((pos % NEWFS_BLOCK_BITS == 0) ? 0 : 1) + 1, (uint32_t) block_buffer, 0);
 
-  /* then use bitmap function */
-  bitmap_set(block_buffer, pos % NEWFS_BLOCK_BITS, value);
+    /* then use bitmap function */
+    bitmap_set(block_buffer, pos % NEWFS_BLOCK_BITS, value);
 
-  /* and write back the block */
-  newfs_disk_action(newfs->disk /* which we do not have*/, 
-                    (pos / NEWFS_BLOCK_BITS) + ((pos % NEWFS_BLOCK_BITS == 0) ? 0 : 1) + 1, (uint32_t) block_buffer, 1);
+    /* and write back the block */
+    newfs_disk_action(newfs->disk /* which we do not have*/, 
+		      (pos / NEWFS_BLOCK_BITS) + ((pos % NEWFS_BLOCK_BITS == 0) ? 0 : 1) + 1, (uint32_t) block_buffer, 1);
     
-  return 1;
+    return 1;
 }
 /**
  * Finds first zero and sets it to one.
@@ -165,14 +165,14 @@ int blockbitmap_findnset(newfs_t *newfs, int l)
       
     /* read a block and try to find a free bit */
     newfs_disk_action(newfs->disk /* which we do not have*/, 
-                      block, (uint32_t) block_buffer, 0);
+                block, (uint32_t) block_buffer, 0);
     result = bitmap_findnset(block_buffer, 
                              l < NEWFS_BLOCK_BITS ? l : NEWFS_BLOCK_BITS);
     
     if (result != -1) {
       /* read a block and try to find a free bit */
       newfs_disk_action(newfs->disk /* which we do not have*/, 
-                        block, (uint32_t) block_buffer, 1);
+                  block, (uint32_t) block_buffer, 1);
       return (block * NEWFS_BLOCK_BITS + result);
     }
 
@@ -523,98 +523,98 @@ int newfs_remove(fs_t *fs, char *filename)
 /* Read at most bufsize bytes from file to the buffer. */
 int newfs_read(fs_t *fs, int fileid, void *buffer, int bufsize, int offset)
 {
-  newfs_t *newfs = (newfs_t *)fs->internal;
-  int b1, b2, b;
-  int read=0;
-  int r;
-  uint32_t block;
+    newfs_t *newfs = (newfs_t *)fs->internal;
+    int b1, b2, b;
+    int read=0;
+    int r;
+    uint32_t block;
 
-  semaphore_P(newfs->lock);
+    semaphore_P(newfs->lock);
 
-  /* fileid is blocknum so ensure that we don't read system blocks
-     or outside the disk */
-  if(fileid < 2 || fileid > (int)newfs->totalblocks) {
-    semaphore_V(newfs->lock);
-    return VFS_ERROR;
-  }
-
-  r = newfs_disk_action(newfs->disk, fileid, (uint32_t)newfs->buffer_inode, 0);
-  if(r == 0) {
-    semaphore_V(newfs->lock);
-    return VFS_ERROR;
-  }
-
-  /* Check that offset is inside the file */
-  if(offset < 0 || offset > (int)newfs->buffer_inode->filesize) {
-    semaphore_V(newfs->lock);
-    return VFS_INVALID_PARAMS;
-  }
-
-  /* Read at most what is left from the file. */
-  bufsize = MIN(bufsize,((int)newfs->buffer_inode->filesize) - offset);
-
-  if(bufsize==0) {
-    semaphore_V(newfs->lock);
-    return 0;
-  }
-
-  /* first block to be read from the disk */
-  b1 = offset / NEWFS_BLOCK_SIZE;
-
-  /* last block to be read from the disk */
-  b2 = (offset+bufsize-1) / NEWFS_BLOCK_SIZE;
-
-  /* If the file has double-indirect blocks, read in the double-indirect
-   * block right away. */
-  if (newfs->buffer_inode->block_dbl_indir > 0 &&
-      newfs_disk_action(newfs->disk, newfs->buffer_inode->block_dbl_indir,
-                        (uint32_t)newfs->buffer_di, 0) == 0)
-    {
-      semaphore_V(newfs->lock);
-      return VFS_ERROR;
+    /* fileid is blocknum so ensure that we don't read system blocks
+       or outside the disk */
+    if(fileid < 2 || fileid > (int)newfs->totalblocks) {
+        semaphore_V(newfs->lock);
+        return VFS_ERROR;
     }
 
-  /* We do this to get the single-indirect buffer we need to start off
-   * the loop. Now we can just check if the block is the first in a
-   * single-indir block and only buffer the single-indir block in that case. */
-  newfs_getblock(newfs, b1, 0);
-  for (b = b1; b <= b2; ++b)
+    r = newfs_disk_action(newfs->disk, fileid, (uint32_t)newfs->buffer_inode, 0);
+    if(r == 0) {
+        semaphore_V(newfs->lock);
+        return VFS_ERROR;
+    }
+
+    /* Check that offset is inside the file */
+    if(offset < 0 || offset > (int)newfs->buffer_inode->filesize) {
+        semaphore_V(newfs->lock);
+        return VFS_INVALID_PARAMS;
+    }
+
+    /* Read at most what is left from the file. */
+    bufsize = MIN(bufsize,((int)newfs->buffer_inode->filesize) - offset);
+
+    if(bufsize==0) {
+        semaphore_V(newfs->lock);
+        return 0;
+    }
+
+    /* first block to be read from the disk */
+    b1 = offset / NEWFS_BLOCK_SIZE;
+
+    /* last block to be read from the disk */
+    b2 = (offset+bufsize-1) / NEWFS_BLOCK_SIZE;
+
+    /* If the file has double-indirect blocks, read in the double-indirect
+     * block right away. */
+    if (newfs->buffer_inode->block_dbl_indir > 0 &&
+            newfs_disk_action(newfs->disk, newfs->buffer_inode->block_dbl_indir,
+                (uint32_t)newfs->buffer_di, 0) == 0)
     {
-      /* Get the physical block of the logical block. Potentially read a new
-       * single-indir block into the buffer. */
-      block = newfs_getblock(newfs, b,
-                             (b - NEWFS_BLOCKS_DIRECT) % NEWFS_BLOCKS_SINDIR);
-      /* We read the data into the BAT buffer because we don't use it for
-       * anything else. */
-      r = newfs_disk_action(newfs->disk, block, (uint32_t)newfs->buffer_bat, 0);
-      if (r == 0)
+        semaphore_V(newfs->lock);
+        return VFS_ERROR;
+    }
+
+    /* We do this to get the single-indirect buffer we need to start off
+     * the loop. Now we can just check if the block is the first in a
+     * single-indir block and only buffer the single-indir block in that case. */
+    newfs_getblock(newfs, b1, 0);
+    for (b = b1; b <= b2; ++b)
+    {
+        /* Get the physical block of the logical block. Potentially read a new
+         * single-indir block into the buffer. */
+        block = newfs_getblock(newfs, b,
+                (b - NEWFS_BLOCKS_DIRECT) % NEWFS_BLOCKS_SINDIR);
+        /* We read the data into the BAT buffer because we don't use it for
+         * anything else. */
+        r = newfs_disk_action(newfs->disk, block, (uint32_t)newfs->buffer_bat, 0);
+        if (r == 0)
         {
-          semaphore_V(newfs->lock);
-          return VFS_ERROR;
+            semaphore_V(newfs->lock);
+            return VFS_ERROR;
         }
-      if (b == b1)
+        if (b == b1)
         {
-          /* First block. Handle the offset. */
-          read = MIN(NEWFS_BLOCK_SIZE - (offset % NEWFS_BLOCK_SIZE), bufsize);
-          memcopy(read, buffer, (const uint32_t *)(((uint32_t)newfs->buffer_bat) +
-                                                   (offset % NEWFS_BLOCK_SIZE)));
-          buffer = (void *)((uint32_t)buffer + read);
+            /* First block. Handle the offset. */
+            read = MIN(NEWFS_BLOCK_SIZE - (offset % NEWFS_BLOCK_SIZE), bufsize);
+            memcopy(read, buffer, (const uint32_t *)(((uint32_t)newfs->buffer_bat) +
+                        (offset % NEWFS_BLOCK_SIZE)));
+            buffer = (void *)((uint32_t)buffer + read);
         }
-      else if (b == b2)
+        else if (b == b2)
         {
-          memcopy(bufsize - read, buffer, (const uint32_t *)newfs->buffer_bat);
-          read = bufsize;
+            memcopy(bufsize - read, buffer, (const uint32_t *)newfs->buffer_bat);
+            read = bufsize;
         }
-      else
+        else
         {
-          memcopy(NEWFS_BLOCK_SIZE, buffer, (const uint32_t *)newfs->buffer_bat);
-          read += NEWFS_BLOCK_SIZE;
-          buffer = (void *)((uint32_t)buffer + NEWFS_BLOCK_SIZE);
+	   memcopy(NEWFS_BLOCK_SIZE, buffer, (const uint32_t *)newfs->buffer_bat);
+            read += NEWFS_BLOCK_SIZE;
+            buffer = (void *)((uint32_t)buffer + NEWFS_BLOCK_SIZE);
         }
     }
 
-  semaphore_V(newfs->lock);
-  return read;
+    semaphore_V(newfs->lock);
+    return read;
 }
 
 /* Write at most datasize bytes to the file, possibly increasing the size of
@@ -823,16 +823,16 @@ int newfs_file(fs_t *fs, char *dirname, int idx, char *buffer)
 
 int newfs_mkdir(fs_t *fs, char *dirname)
 {
-  fs=fs;
-  dirname=dirname;
-  return VFS_NOT_SUPPORTED;
+    fs=fs;
+    dirname=dirname;
+    return VFS_NOT_SUPPORTED;
 }
 
 int newfs_rmdir(fs_t *fs, char *dirname)
 {
-  fs=fs;
-  dirname=dirname;
-  return VFS_NOT_SUPPORTED;
+    fs=fs;
+    dirname=dirname;
+    return VFS_NOT_SUPPORTED;
 }
 
 
@@ -1022,16 +1022,16 @@ uint32_t newfs_getblock(newfs_t *newfs, uint32_t block, int indirbuf)
    string bar/baz, whilst the original pointer will now point to foo.
    Returns NULL if there is no directory seperator in the string. */
 char *split_path(char *filepath) {
-  char *start, *new;
+  char *new;
   start = filepath;
   
-  while (*filepath != '/' || NULL)
+  while (*filepath != '/' || *filepath != NULL)
     filepath++;
 
-  if (filepath == NULL)
+  if (*filepath == NULL)
     return NULL;
 
-  filepath = NULL;
+  *filepath = NULL;
   new = filepath++;
 
   return new;
